@@ -31,7 +31,7 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Crosshair size={32} className="text-red-500" />
-            <span className="text-2xl font-bold">Wild War</span>
+            <span className="text-2xl font-bold">Wild Arena</span>
           </Link>
           <button className="md:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

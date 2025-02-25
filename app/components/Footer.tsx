@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">Wild War</h3>
+            <h3 className="text-2xl font-bold mb-4">Wild Arena</h3>
             <p className="text-sm">Experience the ultimate laser tag adventure</p>
           </div>
           <div>
@@ -65,7 +65,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-green-700 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Wild War. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Wild Arena. All rights reserved.</p>
           <p className="mt-2">
             <Link href="#" className="hover:text-red-400 transition-colors">
               Privacy Policy

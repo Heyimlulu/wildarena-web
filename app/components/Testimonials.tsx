@@ -6,13 +6,13 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Regular Player",
     image: "/placeholder.svg?height=100&width=100",
-    quote: "Wild War has completely revolutionized my weekends. The adrenaline rush is unmatched!",
+    quote: "Wild Arena has completely revolutionized my weekends. The adrenaline rush is unmatched!",
   },
   {
     name: "Mike Chen",
     role: "Corporate Event Organizer",
     image: "/placeholder.svg?height=100&width=100",
-    quote: "Our team building event at Wild War was a massive success. Everyone's still talking about it!",
+    quote: "Our team building event at Wild Arena was a massive success. Everyone's still talking about it!",
   },
   {
     name: "Emily Rodriguez",

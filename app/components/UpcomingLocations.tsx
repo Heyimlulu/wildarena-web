@@ -2,13 +2,13 @@ import { Calendar } from "lucide-react"
 
 const upcomingLocations = [
   {
-    name: "Wild War Beachside",
+    name: "Wild Arena Beachside",
     city: "Surftown",
     openingDate: "Summer 2023",
     description: "Experience laser tag with an ocean view!",
   },
   {
-    name: "Wild War Mountain",
+    name: "Wild Arena Mountain",
     city: "Peakville",
     openingDate: "Fall 2023",
     description: "High-altitude battles in a mountain setting",

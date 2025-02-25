@@ -4,9 +4,9 @@ import { useState } from "react"
 import { MapPin } from "lucide-react"
 
 const locations = [
-  { id: 1, name: "Wild War Downtown", lat: 40.7128, lng: -74.006 },
-  { id: 2, name: "Wild War Suburbs", lat: 40.7282, lng: -73.7949 },
-  { id: 3, name: "Wild War Mall", lat: 40.6782, lng: -73.9442 },
+  { id: 1, name: "Wild Arena Downtown", lat: 40.7128, lng: -74.006 },
+  { id: 2, name: "Wild Arena Suburbs", lat: 40.7282, lng: -73.7949 },
+  { id: 3, name: "Wild Arena Mall", lat: 40.6782, lng: -73.9442 },
 ]
 
 export default function LocationMap() {

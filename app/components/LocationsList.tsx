@@ -2,21 +2,21 @@ import { MapPin, Phone, Clock, Car } from "lucide-react"
 
 const locations = [
   {
-    name: "Wild War Downtown",
+    name: "Wild Arena Downtown",
     address: "123 Main St, Cityville, ST 12345",
     phone: "(555) 123-4567",
     hours: "Mon-Thu: 2pm-10pm, Fri-Sun: 10am-12am",
     parking: "Street parking available",
   },
   {
-    name: "Wild War Suburbs",
+    name: "Wild Arena Suburbs",
     address: "456 Oak Rd, Townsburg, ST 67890",
     phone: "(555) 987-6543",
     hours: "Mon-Thu: 3pm-9pm, Fri-Sun: 11am-11pm",
     parking: "Free parking lot on-site",
   },
   {
-    name: "Wild War Mall",
+    name: "Wild Arena Mall",
     address: "789 Shopping Ctr, Mallville, ST 54321",
     phone: "(555) 246-8135",
     hours: "Mon-Sun: 10am-9pm",

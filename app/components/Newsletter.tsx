@@ -20,7 +20,7 @@ export default function Newsletter() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Stay in the Loop</h2>
           <p className="mb-8">
-            Sign up for our newsletter to receive the latest news, special offers, and exclusive invites to Wild War
+            Sign up for our newsletter to receive the latest news, special offers, and exclusive invites to Wild Arena
             events.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">

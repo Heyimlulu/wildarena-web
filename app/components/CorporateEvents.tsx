@@ -19,7 +19,7 @@ export default function CorporateEvents() {
           <div className="lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-green-800">Level Up Your Team</h2>
             <p className="text-gray-600 mb-6">
-              Bring your team together for an unforgettable corporate event at Wild War. Our laser tag arenas provide
+              Bring your team together for an unforgettable corporate event at Wild Arena. Our laser tag arenas provide
               the perfect setting for team building, fostering communication, strategy, and camaraderie.
             </p>
             <ul className="list-disc list-inside mb-8 text-gray-600">
