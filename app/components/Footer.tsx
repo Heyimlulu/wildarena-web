@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, Music2 } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -42,9 +42,9 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <p className="mb-2">123 Laser Lane, Cityville, ST 12345</p>
-            <p className="mb-2">Phone: (555) 123-4567</p>
-            <p>Email: info@wildwar.com</p>
+            <p className="mb-2">3960 Sierre</p>
+            {/* <p className="mb-2">Phone: (555) 123-4567</p> */}
+            <p>Email: info@wildarena.com</p>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
@@ -59,7 +59,10 @@ export default function Footer() {
                 <Instagram />
               </a>
               <a href="#" className="hover:text-red-400 transition-colors">
-                <Youtube />
+                <Linkedin />
+              </a>
+              <a href="#" className="hover:text-red-400 transition-colors">
+                <Music2 />
               </a>
             </div>
           </div>

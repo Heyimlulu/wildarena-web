@@ -18,11 +18,11 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/locations", label: "Locations" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Accueil" },
+    { href: "/about", label: "A propos" },
+    { href: "/pricing", label: "Offres" },
+    { href: "/locations", label: "Nos arènes" },
+    { href: "/contact", label: "Nous contacter" },
   ]
 
   return (

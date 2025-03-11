@@ -3,30 +3,30 @@ import { Linkedin, Twitter } from "lucide-react"
 
 const teamMembers = [
   {
-    name: "Jane Doe",
+    name: "Benoît Barras",
     role: "CEO & Co-founder",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "",
     linkedin: "#",
     twitter: "#",
   },
   {
-    name: "John Smith",
+    name: "Lucas Rouiller-Monay",
     role: "CTO & Co-founder",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "",
     linkedin: "#",
     twitter: "#",
   },
   {
-    name: "Alice Johnson",
-    role: "Head of Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    name: "David Passera",
+    role: "COO & Co-founder",
+    image: "",
     linkedin: "#",
     twitter: "#",
   },
   {
-    name: "Alice Johnson",
-    role: "Head of Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Vincent Brassard",
+    role: "CIO & Co-founder",
+    image: "",
     linkedin: "#",
     twitter: "#",
   },
@@ -36,7 +36,7 @@ export default function Team() {
   return (
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-green-800">Meet Our Team</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-green-800">Notre Equipe</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <div
@@ -44,7 +44,7 @@ export default function Team() {
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <Image
-                src={member.image || "/placeholder.svg"}
+                src={member.image || "https://placehold.co/300x300.png"}
                 alt={member.name}
                 width={300}
                 height={300}

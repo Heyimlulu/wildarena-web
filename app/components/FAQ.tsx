@@ -5,29 +5,29 @@ import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
   {
-    question: "How do I book a game?",
+    question: "Comment réserver une partie?",
     answer:
-      "You can book a game online through our website or by calling our main office. We recommend booking in advance, especially for weekends and holidays.",
+      "Vous pouvez réserver une partie en ligne sur notre site web ou en appelant notre bureau principal. Nous recommandons de réserver à l'avance, notamment pour les week-ends et les jours fériés.",
   },
   {
-    question: "What should I wear for laser tag?",
+    question: "Qu'est-ce que je devrais porter pour le laser tag?",
     answer:
-      "We recommend comfortable, breathable clothing and closed-toe shoes. Avoid loose or baggy clothes that might get caught on equipment.",
+      "Nous recommandons des vêtements confortables, respirants et des chaussures fermées. Évitez les vêtements amples ou flottants qui pourraient se prendre dans les équipements.",
   },
   {
-    question: "Is there an age limit for playing?",
+    question: "Y a-t-il une limite d'âge pour jouer?",
     answer:
-      "While we welcome players of all ages, children under 7 must be accompanied by an adult. We also offer special sessions for younger children.",
+      "Bien que nous accueillions des joueurs de tous les âges, les enfants de moins de 7 ans doivent être accompagnés d'un adulte. Nous offrons également des séances spéciales pour les plus jeunes.",
   },
   {
-    question: "Do you offer group discounts?",
+    question: "Offrez-vous des remises pour les groupes?",
     answer:
-      "Yes, we offer special packages for groups, birthday parties, and corporate events. Check our Pricing page for more details or contact us for a custom quote.",
+      "Oui, nous offrons des paquets spéciaux pour les groupes, les fêtes d'anniversaire et les événements d'entreprise. Consultez notre page Tarifs pour plus de détails ou contactez-nous pour obtenir un devis personnalisé.",
   },
   {
-    question: "How long does a typical game last?",
+    question: "Combien dure une partie typique?",
     answer:
-      "A standard game lasts about 20 minutes, but we offer various packages with different durations. Check our Pricing page for more information.",
+      "Une partie standard dure environ 20 minutes, mais nous offrons divers paquets avec des durées différentes. Consultez notre page Tarifs pour plus d'informations.",
   },
 ]
 
@@ -37,7 +37,7 @@ export default function FAQ() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-green-800">Frequently Asked Questions</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-green-800">FAQ</h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">

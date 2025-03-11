@@ -12,7 +12,7 @@ const testimonials = [
     name: "Mike Chen",
     role: "Corporate Event Organizer",
     image: "/placeholder.svg?height=100&width=100",
-    quote: "Our team building event at Wild Arena was a massive success. Everyone's still talking about it!",
+    quote: "Our team building event at Wild Arena was a massive success. Everyone&apos;s still talking about it!",
   },
   {
     name: "Emily Rodriguez",
@@ -46,7 +46,7 @@ export default function Testimonials() {
                   <p className="text-gray-600">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-gray-700 mb-4">"{testimonial.quote}"</p>
+              <p className="text-gray-700 mb-4">&apos;{testimonial.quote}&apos;</p>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-current" />
