@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Logo from "../images/logoWA.png";
 
 export default function OurStory() {
   return (
@@ -7,7 +8,7 @@ export default function OurStory() {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image
-              src="https://placehold.co/600x400.png"
+              src={Logo}
               alt="Wild Arena Arena"
               width={600}
               height={400}

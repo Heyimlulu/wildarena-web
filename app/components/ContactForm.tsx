@@ -19,10 +19,9 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // Handle form submission here
-    console.log(formData)
+    // TODO: send email
     // Reset form after submission
     setFormData({ name: "", email: "", subject: "", message: "" })
-    alert("Thank you for your message. We will get back to you soon!")
   }
 
   return (
@@ -31,7 +30,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-            Name
+            Nom, Prénom
           </label>
           <input
             type="text"
@@ -59,7 +58,7 @@ export default function ContactForm() {
         </div>
         <div className="mb-4">
           <label htmlFor="subject" className="block text-gray-700 font-bold mb-2">
-            Subject
+            Sujet
           </label>
           <input
             type="text"
@@ -90,7 +89,7 @@ export default function ContactForm() {
           className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 flex items-center"
         >
           <Send className="mr-2" />
-          Send Message
+          Envoyer
         </button>
       </form>
     </div>

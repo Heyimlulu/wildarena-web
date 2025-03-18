@@ -37,7 +37,7 @@ export default function FAQ() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-green-800">FAQ</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-green-800">Foire au Questions</h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">

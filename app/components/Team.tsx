@@ -6,29 +6,22 @@ const teamMembers = [
     name: "Benoît Barras",
     role: "CEO & Co-founder",
     image: "",
-    linkedin: "#",
-    twitter: "#",
   },
   {
     name: "Lucas Rouiller-Monay",
     role: "CTO & Co-founder",
     image: "",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/lucas-rouiller-monay/",
   },
   {
     name: "David Passera",
     role: "COO & Co-founder",
     image: "",
-    linkedin: "#",
-    twitter: "#",
   },
   {
     name: "Vincent Brassard",
     role: "CIO & Co-founder",
     image: "",
-    linkedin: "#",
-    twitter: "#",
   },
 ]
 
@@ -44,7 +37,7 @@ export default function Team() {
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <Image
-                src={member.image || "https://placehold.co/300x300.png"}
+                src={member?.image || "https://placehold.co/300x300.png"}
                 alt={member.name}
                 width={300}
                 height={300}
@@ -52,14 +45,13 @@ export default function Team() {
               />
               <h3 className="text-xl font-semibold mb-2 text-center text-green-800">{member.name}</h3>
               <p className="text-gray-600 text-center mb-4">{member.role}</p>
-              <div className="flex justify-center space-x-4">
-                <a href={member.linkedin} className="text-gray-400 hover:text-blue-600 transition-colors">
-                  <Linkedin />
-                </a>
-                <a href={member.twitter} className="text-gray-400 hover:text-blue-400 transition-colors">
-                  <Twitter />
-                </a>
-              </div>
+              {/* {member.linkedin &&
+                <div className="flex justify-center space-x-4">
+                  <a href={member.linkedin} target="_blank" className="text-gray-400 hover:text-blue-600 transition-colors">
+                    <Linkedin />
+                  </a>
+                </div>
+              } */}
             </div>
           ))}
         </div>
