@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, Music2 } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Music2 } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-4">Wild Arena</h3>
-            <p className="text-sm">Experience the ultimate laser tag adventure</p>
+            <p className="text-sm">"Libérez votre côté sauvage"</p>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
@@ -43,8 +43,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <p className="mb-2">3960 Sierre</p>
-            {/* <p className="mb-2">Phone: (555) 123-4567</p> */}
-            <p>Email: info@wildarena.com</p>
+            <p>Email: info.wild.arena@gmail.com</p>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>

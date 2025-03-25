@@ -26,7 +26,7 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-3xl font-bold text-green-800 mb-6">Send us a message</h2>
+      <h2 className="text-3xl font-bold text-green-800 mb-6">Prendre contact avec notre équipe</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 font-bold mb-2">

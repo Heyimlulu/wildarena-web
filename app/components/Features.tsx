@@ -3,18 +3,18 @@ import { Target, Users, Zap } from "lucide-react"
 const features = [
   {
     icon: Target,
-    title: "State-of-the-Art Equipment",
-    description: "Experience laser tag like never before with our cutting-edge gear and immersive arenas.",
+    title: "Équipement de pointe",
+    description: "Découvrez le laser tag comme jamais auparavant avec notre équipement de pointe et nos arènes immersives.",
   },
   {
     icon: Users,
     title: "Team Building",
-    description: "Perfect for corporate events, birthday parties, or a fun day out with friends and family.",
+    description: "Parfait pour les événements d'entreprise, les fêtes d'anniversaire ou une journée amusante entre amis et en famille.",
   },
   {
     icon: Zap,
-    title: "Multiple Game Modes",
-    description: "Choose from a variety of exciting game modes to keep the adrenaline pumping all day long.",
+    title: "Modes de jeu multiples",
+    description: "Choisissez parmi une variété de modes de jeu passionnants pour maintenir l'adrénaline toute la journée.",
   },
 ]
 
@@ -22,7 +22,7 @@ export default function Features() {
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800">Why Choose Wild Arena?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800">Pourquoi choisir Wild Arena?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
@@ -39,4 +39,3 @@ export default function Features() {
     </section>
   )
 }
-

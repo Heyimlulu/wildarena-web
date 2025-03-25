@@ -2,23 +2,23 @@ import { Shield, Users, Clock, Zap } from "lucide-react"
 
 const gameModes = [
   {
-    name: "Team Deathmatch",
-    description: "Classic team vs team combat. Eliminate opponents and score points for your team.",
+    name: "Match à mort en équipe",
+    description: "Combat classique en équipe. Éliminez les adversaires et marquez des points pour votre équipe.",
     icon: Users,
   },
   {
-    name: "Capture the Flag",
-    description: "Infiltrate the enemy base, grab their flag, and return it to your base to score.",
+    name: "Capture du drapeau",
+    description: "Infiltrez la base ennemie, prenez leur drapeau et ramenez-le à votre base pour marquer.",
     icon: Shield,
   },
   {
     name: "Last Man Standing",
-    description: "Every player for themselves. Be the last one with lives remaining to win.",
+    description: "Chaque joueur pour lui-même. Soyez le dernier avec des vies restantes pour gagner.",
     icon: Zap,
   },
   {
-    name: "Timed Assault",
-    description: "Race against the clock to score the most points before time runs out.",
+    name: "Match chronométré",
+    description: "Course contre la montre pour marquer le plus de points avant la fin du temps imparti.",
     icon: Clock,
   },
 ]
@@ -27,7 +27,7 @@ export default function GameModes() {
   return (
     <section className="py-16 md:py-24 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800">Game Modes</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800">Modes de jeu</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {gameModes.map((mode, index) => (
             <div
@@ -44,4 +44,3 @@ export default function GameModes() {
     </section>
   )
 }
-

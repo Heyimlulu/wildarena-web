@@ -1,10 +1,10 @@
-import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Music2 } from "lucide-react"
+import { MapPin, Mail, Clock } from "lucide-react"
 import { SocialIcon } from "react-social-icons"
 
 export default function ContactInfo() {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-3xl font-bold text-green-800 mb-6">Contact Information</h2>
+      <h2 className="text-3xl font-bold text-green-800 mb-6">Information de contact</h2>
       <div className="space-y-4 mb-8">
         <div className="flex items-start">
           <MapPin className="text-red-500 mr-4 mt-1" />
@@ -14,17 +14,10 @@ export default function ContactInfo() {
           </div>
         </div>
         <div className="flex items-center">
-          <Phone className="text-red-500 mr-4" />
-          <div>
-            <h3 className="font-bold">Phone</h3>
-            <p>(+41) 58 123 45 67</p>
-          </div>
-        </div>
-        <div className="flex items-center">
           <Mail className="text-red-500 mr-4" />
           <div>
             <h3 className="font-bold">Email</h3>
-            <p>info@wildwar.com</p>
+            <p>info.wild.arena@gmail.com</p>
           </div>
         </div>
         <div className="flex items-start">

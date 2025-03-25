@@ -1,5 +1,3 @@
-import { MessageCircle } from "lucide-react"
-
 export default function ContactHero() {
   return (
     <section className="bg-gradient-to-br from-green-700 to-green-900 text-white py-20">
