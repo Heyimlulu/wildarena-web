@@ -7,7 +7,7 @@ export default function Hero() {
     <div className="container mx-auto">
       <h1 className="text-5xl font-bold mb-4">Expérimentez le frisson du combat laser en pleine nature !</h1>
       <p className="text-lg mb-8">
-        Immergez-vous dans l'action palpitante avec la technologie de laser tag de pointe. Parfait pour les amis,
+        Immergez-vous dans l&apos;action palpitante avec la technologie de laser tag de pointe. Parfait pour les amis,
         les familles, et le team building !
       </p>
       <div className="flex justify-center space-x-4">
