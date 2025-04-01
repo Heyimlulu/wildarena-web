@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Logo from "../images/logoWA.png";
+import Logo from "../images/big-logo.png";
 
 export default function OurStory() {
   return (

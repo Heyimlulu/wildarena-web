@@ -32,7 +32,7 @@ export default function ContactInfo() {
       <h3 className="text-2xl font-bold text-green-800 mb-4">Suivez nous</h3>
       <div className="flex space-x-4">
         <SocialIcon url="https://www.facebook.com/profile.php?id=61573961254019" target="_blank" className="text-gray-600 hover:text-blue-600 transition-colors" />
-        <SocialIcon url="https://www.instagram.com/wßild_arena_ch/" target="_blank" className="text-gray-600 hover:text-blue-600 transition-colors" />
+        <SocialIcon url="https://www.instagram.com/wild_arena_ch/" target="_blank" className="text-gray-600 hover:text-blue-600 transition-colors" />
         <SocialIcon url="https://www.tiktok.com/@wild_arena_ch" target="_blank" className="text-gray-600 hover:text-blue-600 transition-colors" />
         <SocialIcon url="https://www.linkedin.com/in/wild-arena-637023356/" target="_blank" className="text-gray-600 hover:text-blue-600 transition-colors" />
       </div>

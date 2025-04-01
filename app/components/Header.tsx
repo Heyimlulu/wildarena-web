@@ -3,7 +3,9 @@
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { Crosshair, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import logo from "../images/big-logo.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,7 +32,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Crosshair size={32} className="text-red-500" />
+            <Image src={logo} alt="Wild Arena logo" width={72} height={72} />
             <span className="text-2xl font-bold">Wild Arena</span>
           </Link>
           <button className="md:hidden" onClick={toggleMenu}>

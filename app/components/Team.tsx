@@ -3,26 +3,25 @@ import Image from "next/image"
 const teamMembers = [
   {
     name: "Benoît Barras",
-    role: "CEO & Co-founder",
-    image: "",
+    role: "CEO & Co-fondateur",
+    image: "/avatars/lion.png",
   },
   {
     name: "Lucas Rouiller-Monay",
-    role: "CTO & Co-founder",
-    image: "",
-    linkedin: "https://www.linkedin.com/in/lucas-rouiller-monay/",
+    role: "CTO & Co-fondateur",
+    image: "/avatars/fox.png",
   },
   {
     name: "David Passera",
-    role: "COO & Co-founder",
-    image: "",
+    role: "COO & Co-fondateur",
+    image: "/avatars/wolf.png",
   },
   {
     name: "Vincent Brassard",
-    role: "CIO & Co-founder",
-    image: "",
+    role: "CIO & Co-fondateur",
+    image: "/avatars/owl.png",
   },
-]
+];
 
 export default function Team() {
   return (
@@ -36,7 +35,7 @@ export default function Team() {
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <Image
-                src={member?.image || "https://placehold.co/300x300.png"}
+                src={member?.image}
                 alt={member.name}
                 width={300}
                 height={300}
@@ -44,13 +43,6 @@ export default function Team() {
               />
               <h3 className="text-xl font-semibold mb-2 text-center text-green-800">{member.name}</h3>
               <p className="text-gray-600 text-center mb-4">{member.role}</p>
-              {/* {member.linkedin &&
-                <div className="flex justify-center space-x-4">
-                  <a href={member.linkedin} target="_blank" className="text-gray-400 hover:text-blue-600 transition-colors">
-                    <Linkedin />
-                  </a>
-                </div>
-              } */}
             </div>
           ))}
         </div>

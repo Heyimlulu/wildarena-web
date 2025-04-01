@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: var(--font-abc-ginto-nord);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
