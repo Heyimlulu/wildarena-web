@@ -9,7 +9,7 @@ export default function CorporateEvents() {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
             <Image
-              src="/banners/Teambuilding.jpg"
+              src="/Teambuilding.jpg"
               alt="Événement de team building d&apos;entreprise"
               width={600}
               height={400}

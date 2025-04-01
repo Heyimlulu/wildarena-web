@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
         {/* Add more content as needed */}
         <div className="mt-8">
           <Link href="/" className="text-green-500 hover:underline">
-            Retour à la page d'accueil
+            Retour à la page d&apos;accueil
           </Link>
         </div>
       </main>
