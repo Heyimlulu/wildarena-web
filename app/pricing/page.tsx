@@ -1,7 +1,7 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import PricingOptions from "../components/PricingOptions"
-import FAQ from "../components/FAQ"
+import Header from "../components/layout/Header"
+import Footer from "../components/layout/Footer"
+import PricingOptions from "../components/features/pricing/PricingOptions"
+import FAQ from "../components/shared/ui/FAQ"
 import { CalendarCheck } from "lucide-react"
 
 export default function Pricing() {
@@ -25,4 +25,3 @@ export default function Pricing() {
     </div>
   )
 }
-

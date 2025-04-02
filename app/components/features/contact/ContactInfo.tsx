@@ -1,3 +1,4 @@
+import React from 'react';
 import { MapPin, Mail, Clock } from "lucide-react"
 import { SocialIcon } from "react-social-icons"
 

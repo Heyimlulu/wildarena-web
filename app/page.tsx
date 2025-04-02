@@ -1,10 +1,10 @@
-import Header from "./components/Header"
-import Hero from "./components/Hero"
-import Features from "./components/Features"
-import GameModes from "./components/GameModes"
-import CorporateEvents from "./components/CorporateEvents"
-import Footer from "./components/Footer"
-import Banner from "./components/Banner"
+import Header from "./components/layout/Header"
+import Hero from "./components/features/home/Hero"
+import Features from "./components/features/home/Features"
+import GameModes from "./components/features/home/GameModes"
+import CorporateEvents from "./components/features/home/CorporateEvents"
+import Footer from "./components/layout/Footer"
+import Banner from "./components/shared/ui/Banner"
 
 export default function Home() {
   return (
@@ -21,4 +21,3 @@ export default function Home() {
     </div>
   )
 }
-

@@ -1,8 +1,8 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import AboutHero from "../components/AboutHero"
-import OurStory from "../components/OurStory"
-import Team from "../components/Team"
+import Header from "../components/layout/Header"
+import Footer from "../components/layout/Footer"
+import AboutHero from "../components/features/about/AboutHero"
+import OurStory from "../components/features/about/OurStory"
+import Team from "../components/features/home/Team"
 
 export default function About() {
   return (
@@ -17,4 +17,3 @@ export default function About() {
     </div>
   )
 }
-

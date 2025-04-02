@@ -1,8 +1,8 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import LocationsHero from "../components/LocationsHero"
-import LocationsList from "../components/LocationsList"
-import LocationMap from "../components/LocationMap"
+import Header from "../components/layout/Header"
+import Footer from "../components/layout/Footer"
+import LocationsHero from "../components/features/locations/LocationsHero"
+import LocationsList from "../components/features/locations/LocationsList"
+import LocationMap from "../components/features/locations/LocationMap"
 
 export default function Locations() {
   return (
@@ -17,4 +17,3 @@ export default function Locations() {
     </div>
   )
 }
-
