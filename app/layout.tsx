@@ -29,13 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${abcGintoNord.variable} antialiased`}
+        className={`${abcGintoNord.variable} antialiased min-h-screen flex flex-col`}
       >
         {children}
       </body>

@@ -19,8 +19,17 @@ module.exports = {
           700: "#D32F2F",
         },
       },
+      animation: {
+        'bounce-slow': 'bounce 2s infinite',
+        'subtle-zoom': 'subtleZoom 20s infinite alternate',
+      },
+      keyframes: {
+        subtleZoom: {
+          '0%': { transform: 'scale(1.05)' },
+          '100%': { transform: 'scale(1.1)' },
+        },
+      },
     },
   },
   plugins: [],
 }
-
