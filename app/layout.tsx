@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import CookieConsent from "./components/CookieConsent";
 
 const abcGintoNord = localFont({
   src: [
@@ -33,11 +35,13 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" href="/favicon.ico" />
+        <GoogleAnalytics />
       </head>
       <body
         className={`${abcGintoNord.variable} antialiased min-h-screen flex flex-col`}
       >
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

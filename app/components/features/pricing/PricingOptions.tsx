@@ -164,6 +164,8 @@ function BookingModal({
     type: bookingType,
     price: selectedOption?.price || 0,
   })
+  console.log(formData);
+  
   const [status, setStatus] = useState({
     loading: false,
     error: null as string | null,
@@ -206,7 +208,7 @@ function BookingModal({
         body: JSON.stringify({
           ...formData,
           date: formData.date.toISOString(),
-          subject: `Réservation ${formData.package}`,
+          subject: `Réservation ${formData.package || ''}`,
         }),
       })
 

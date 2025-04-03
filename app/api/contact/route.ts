@@ -9,22 +9,24 @@ export async function POST(request: Request) {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
     });
 
     const emailBody = `
-Nouvelle demande de réservation:
-
-Nom, Prénom: ${name}
-Email: ${email}
-Date: ${formattedDate}
-Heure: ${time}
-Nombre de joueurs: ${players}
-${message ? `\nMessage: ${message}` : ''}
+        Nouvelle demande de réservation:
+        
+        Nom, Prénom: ${name}
+        Email: ${email}
+        Date: ${formattedDate}
+        Heure: ${time}
+        Nombre de joueurs: ${players}
+        ${message ? `\nMessage: ${message}` : ''}
     `;
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: 'Gmail',
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
@@ -37,7 +39,7 @@ ${message ? `\nMessage: ${message}` : ''}
     await transporter.sendMail({
       from: email,
       to: process.env.NEXT_EMAIL_USER,
-      subject: `Réservation - ${subject}`,
+      subject: `Réservation ${subject ? ` - ${subject}` : ''}`,
       text: emailBody,
     });
 
