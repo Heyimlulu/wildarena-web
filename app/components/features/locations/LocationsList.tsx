@@ -12,17 +12,7 @@ const locations = [
     availability: "Lundi - Dimanche",
     capacity: "Jusqu'à 30 joueurs",
     description: "Une arène naturelle exceptionnelle au cœur du plus grand site naturel du Valais. Terrain varié avec forêts denses et clairières.",
-  },
-  {
-    name: "Parc naturel de la vallée du Trient",
-    address: "1922 Salvan",
-    image: "/locations/trient.jpg",
-    parking: "Parking gratuit disponible",
-    openingHours: "9h00 - 17h00",
-    availability: "Mardi - Dimanche",
-    capacity: "Jusqu'à 24 joueurs",
-    description: "Un cadre montagnard spectaculaire offrant des parties intenses avec des dénivelés naturels et des cachettes rocheuses.",
-  },
+  }
 ]
 
 export default function LocationsList() {

@@ -21,8 +21,12 @@ export default function AboutHero() {
             Découvrez l&apos;histoire derrière une expérience de laser game unique
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-center">
+          <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">4</div>
+              <div className="text-sm sm:text-base text-gray-200">Fondateurs</div>
+            </div>
             <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">2+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">1+</div>
               <div className="text-sm sm:text-base text-gray-200">Arènes</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
@@ -30,8 +34,8 @@ export default function AboutHero() {
               <div className="text-sm sm:text-base text-gray-200">Modes de jeu</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">4</div>
-              <div className="text-sm sm:text-base text-gray-200">Fondateurs passionnés</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">20+</div>
+              <div className="text-sm sm:text-base text-gray-200">Équipements</div>
             </div>
           </div>
         </div>

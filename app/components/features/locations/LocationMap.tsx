@@ -13,15 +13,7 @@ const locations = [
     lng: 7.573568481547323,
     address: "3970 Salquenen",
     openingHours: "9h00 - 18h00",
-  },
-  {
-    id: 2,
-    name: "Parc naturel de la vallée du Trient",
-    lat: 46.1198,
-    lng: 7.0227,
-    address: "1922 Salvan",
-    openingHours: "9h00 - 17h00",
-  },
+  }
 ]
 
 export default function LocationMap() {

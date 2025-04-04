@@ -40,7 +40,7 @@ export default function LocationsHero() {
             </p>
             <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
               <MapPin className="w-6 h-6 text-red-500 mr-3" />
-              <span className="text-lg text-white font-medium">2 destinations et plus à venir</span>
+              <span className="text-lg text-white font-medium">1 destination et plus à venir</span>
             </div>
           </div>
         </div>
