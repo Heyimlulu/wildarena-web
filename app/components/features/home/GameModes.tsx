@@ -1,9 +1,10 @@
-import { Shield, Users, Clock, Zap } from "lucide-react"
+import { Shield, Users, Target, Zap } from "lucide-react"
+import Link from "next/link"
 
 const gameModes = [
   {
-    name: "Match à mort en équipe",
-    description: "Combat classique en équipe. Éliminez les adversaires et marquez des points pour votre équipe.",
+    name: "Match en équipe",
+    description: "Chaque équipe affronte l'autre pour marquer le plus de points. L'équipe avec le plus de points remporte la partie.",
     icon: Users,
   },
   {
@@ -12,14 +13,14 @@ const gameModes = [
     icon: Shield,
   },
   {
-    name: "Last Man Standing",
+    name: "Dernier Survivant",
     description: "Chaque joueur pour lui-même. Soyez le dernier avec des vies restantes pour gagner.",
     icon: Zap,
   },
   {
-    name: "Match chronométré",
-    description: "Course contre la montre pour marquer le plus de points avant la fin du temps imparti.",
-    icon: Clock,
+    name: "Domination",
+    description: "Contrôlez les points stratégiques de la carte pour accumuler des points. La coordination d'équipe est la clé de la victoire.",
+    icon: Target,
   },
 ]
 
@@ -44,6 +45,11 @@ export default function GameModes() {
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">{mode.description}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12 sm:mt-16">
+            <Link className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 shadow-lg" href="/game-modes">
+              En savoir plus
+            </Link>
           </div>
         </div>
       </div>

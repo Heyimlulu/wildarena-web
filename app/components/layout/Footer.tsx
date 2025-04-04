@@ -16,8 +16,10 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-3 sm:mb-4">Liens rapides</h4>
               <ul className="space-y-2.5">
                 {[
-                  { href: "/", label: "Accueil" },
                   { href: "/about", label: "A propos" },
+                  { href: "/game-modes", label: "Modes de jeu" },
+                  { href: "/events", label: "Événements" },
+                  { href: "/blog", label: "Blog" },
                   { href: "/pricing", label: "Offres" },
                   { href: "/locations", label: "Nos arènes" },
                   { href: "/contact", label: "Nous contacter" },

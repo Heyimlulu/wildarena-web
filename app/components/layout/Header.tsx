@@ -20,8 +20,9 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { href: "/", label: "Accueil" },
     { href: "/about", label: "A propos" },
+    { href: "/game-modes", label: "Modes de jeu" },
+    { href: "/events", label: "Événements" },
     { href: "/pricing", label: "Offres" },
     { href: "/locations", label: "Nos arènes" },
     { href: "/contact", label: "Nous contacter" },

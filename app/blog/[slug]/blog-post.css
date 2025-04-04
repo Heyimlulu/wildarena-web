@@ -1,0 +1,95 @@
+/* Blog post specific styles */
+.blog-post-container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.blog-post-article {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 1rem;
+}
+
+.blog-post-date {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.blog-post-content {
+  /* Markdown content styling */
+  color: #374151;
+  line-height: 1.75;
+}
+
+.blog-post-content h1 {
+  color: #166534;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post-content h2 {
+  color: #166534;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  list-style-type: square;
+}
+
+.blog-post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content li::marker {
+  color: #15803d;
+}
+
+.blog-post-content strong {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.blog-post-content a {
+  color: #15803d;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.blog-post-content a:hover {
+  color: #166534;
+}
+
+.blog-post-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #15803d;
+  transition: color 0.2s;
+}
+
+.blog-post-back-link:hover {
+  color: #166534;
+}
