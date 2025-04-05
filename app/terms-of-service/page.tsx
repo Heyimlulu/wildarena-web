@@ -12,7 +12,7 @@ const TermsOfService = () => {
         <p className="mb-4">Ces conditions régissent votre utilisation de nos services. En utilisant nos services, vous acceptez ces conditions.</p>
         {/* Ajoutez plus de contenu au besoin */}
         <div className="mt-8">
-          <Link href="/" className="text-green-500 hover:underline">
+          <Link href="/" className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 shadow-lg">
             Retour à la page d&apos;accueil
           </Link>
         </div>

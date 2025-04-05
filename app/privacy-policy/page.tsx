@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
         <p className="mb-4">Votre vie privée est importante pour nous. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations.</p>
         {/* Add more content as needed */}
         <div className="mt-8">
-          <Link href="/" className="text-green-500 hover:underline">
+          <Link href="/" className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 shadow-lg">
             Retour à la page d&apos;accueil
           </Link>
         </div>
