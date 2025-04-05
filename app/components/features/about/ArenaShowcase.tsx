@@ -1,30 +1,43 @@
 import Image from "next/image"
 import { Play } from "lucide-react"
 import React from "react"
+import Link from "next/link"
 
-const arenaImages = [
+interface ArenaImage {
+  src: string
+  alt: string
+  title: string
+  slug: string
+  description: string
+}
+
+const arenaImages: ArenaImage[] = [
   {
     src: "/arenas/arena1.gif",
     alt: "Arènes en plein air",
     title: "Arènes en plein air",
+    slug: "outdoor-arena",
     description: "Une expérience immersive dans un cadre naturel exceptionnel"
   },
   {
     src: "/arenas/arena2.gif",
     alt: "Arène intérieure",
     title: "Votre propre expérience de jeu laser",
+    slug: "indoor-arena",
     description: "Transformez votre bâtiment en une arène de jeu laser immersive"
   },
   {
     src: "/arenas/event1.jpg",
     alt: "Événement Wild Arena",
     title: "Événements Spéciaux",
+    slug: "special-event",
     description: "Des tournois et événements exclusifs"
   },
   {
     src: "/arenas/equipment.jpg",
     alt: "Équipement Wild Arena",
     title: "Équipement de Pointe",
+    slug: "equipment",
     description: "Technologie laser game dernière génération"
   }
 ]
@@ -56,9 +69,9 @@ export default function ArenaShowcase() {
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button className="bg-white/90 hover:bg-white p-4 rounded-full">
+                    <Link href={`/blog/${image.slug}`} className="bg-white/90 hover:bg-white p-4 rounded-full">
                       <Play className="w-6 h-6 text-green-800" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

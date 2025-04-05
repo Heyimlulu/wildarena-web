@@ -22,8 +22,8 @@ export default function AboutHero() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-center">
           <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">4</div>
-              <div className="text-sm sm:text-base text-gray-200">Fondateurs</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">1</div>
+              <div className="text-sm sm:text-base text-gray-200">Région</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
               <div className="text-2xl sm:text-3xl font-bold text-white mb-1">1+</div>
