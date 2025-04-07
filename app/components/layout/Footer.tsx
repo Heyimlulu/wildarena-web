@@ -50,46 +50,44 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-3 sm:mb-4">Suivez nous</h4>
-              <div className="flex flex-wrap gap-4">
+              <h4 className="text-lg font-semibold mb-3 sm:mb-4">Informations</h4>
+              <ul className="space-y-2.5">
                 {[
-                  { href: "https://www.facebook.com/profile.php?id=61573961254019", icon: Facebook, label: "Facebook" },
-                  { href: "https://www.instagram.com/wild_arena_ch/", icon: Instagram, label: "Instagram" },
-                  { href: "https://www.linkedin.com/in/wild-arena-637023356/", icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://www.tiktok.com/@wild_arena_ch", icon: Music2, label: "TikTok" }
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-700 p-2.5 rounded-lg hover:bg-green-600 transition-all duration-300 transform hover:-translate-y-1"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </a>
+                  { href: "/faq", label: "FAQ" },
+                  { href: "/privacy-policy", label: "Politique de confidentialité" },
+                  { href: "/terms-of-service", label: "Conditions générales" },
+                  { href: "https://linktr.ee/wild_arena_ch", label: "Réseaux sociaux", target: "_blank", rel: "noopener noreferrer" }
+                ].map((link) => (
+                  <li key={link.href}>
+                    <Link 
+                      href={link.href} 
+                      target={link.target}
+                      rel={link.rel}
+                      className="text-gray-200 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
+              </ul>
+              <div className="mt-6 flex space-x-4">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                  <Facebook size={20} />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                  <Linkedin size={20} />
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                  <Music2 size={20} />
+                </a>
               </div>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-green-700 text-center">
-            <p className="text-sm text-gray-200">
-              &copy; {new Date().getFullYear()} Wild Arena. All rights reserved.
-            </p>
-            <div className="mt-4 space-x-6 text-sm">
-              <Link 
-                href="/privacy-policy" 
-                className="text-gray-200 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link 
-                href="/terms-of-service" 
-                className="text-gray-200 hover:text-white transition-colors"
-              >
-                Terms of Service
-              </Link>
-            </div>
+          <div className="mt-12 pt-8 border-t border-gray-600 text-center text-sm text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Wild Arena. Tous droits réservés.</p>
           </div>
         </div>
       </div>

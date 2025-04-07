@@ -9,7 +9,7 @@ const quickStats = [
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-green-700 to-green-900 text-white py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"> 
+    <section id="hero" className="relative bg-gradient-to-br from-green-700 to-green-900 text-white py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"> 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main heading with gradient text */}
