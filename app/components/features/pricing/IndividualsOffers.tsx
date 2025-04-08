@@ -12,7 +12,7 @@ const individualOptions = [
     },
     {
       name: "Partie (1 Heure)",
-      price: 95,
+      price: 105,
       duration: "60 minutes",
       icon: Zap,
       maxPlayers: 1,
@@ -20,7 +20,7 @@ const individualOptions = [
     },
     {
       name: "Pass Journalier",
-      price: 160,
+      price: 400,
       duration: "Journée complète",
       icon: Users,
       maxPlayers: 1,

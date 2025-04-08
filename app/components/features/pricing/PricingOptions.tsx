@@ -32,7 +32,15 @@ export function PricingCard({ option, type, onBook }: PricingCardProps) {
         <option.icon className="w-12 h-12 text-red-500 mb-6" />
         <h3 className="text-2xl font-bold text-green-800 mb-4">{option.name}</h3>
         <div className="text-4xl font-bold text-gray-800 mb-4">
-          CHF {option.price}.-
+        {type === 'group' ? (
+          <div className="text-4xl font-bold text-gray-800 mb-4">
+            Dès CHF {option.price}.-
+          </div>
+        ) : (
+          <div className="text-4xl font-bold text-gray-800 mb-4">
+            CHF {option.price}.-
+          </div>
+        )}
           <span className="text-lg text-gray-600 block mt-1">
             {option.duration}
           </span>

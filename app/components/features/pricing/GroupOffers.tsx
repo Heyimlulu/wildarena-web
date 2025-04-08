@@ -4,7 +4,7 @@ import { PricingCard, PricingCardProps } from "./PricingOptions"
 const groupOptions = [
     {
       name: "Fête d'Anniversaire",
-      price: 250,
+      price: 2100,
       participants: "Jusqu'à 10 joueurs",
       maxPlayers: 10,
       duration: "2 heures",
@@ -18,7 +18,7 @@ const groupOptions = [
     },
     {
       name: "Team Building",
-      price: 400,
+      price: 6300,
       participants: "Jusqu'à 20 joueurs",
       maxPlayers: 20,
       duration: "3 heures",
@@ -33,7 +33,7 @@ const groupOptions = [
     },
     {
       name: "Groupe d'Amis",
-      price: 180,
+      price: 1500,
       participants: "Jusqu'à 6 joueurs",
       maxPlayers: 6,
       duration: "90 minutes",

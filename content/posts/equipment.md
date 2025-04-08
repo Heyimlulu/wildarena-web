@@ -1,5 +1,5 @@
 ---
-title: 'Equipements de points'
+title: 'Equipements de pointe'
 date: '2025-03-31'
 description: 'Découvrez nos équipements de pointe'
 ---
