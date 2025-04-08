@@ -15,7 +15,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostData(params.slug);
   return {
-    title: `${post.title} - WildWar Blog`,
+    title: `${post.title} - Wild Arena Blog`,
     description: post.description,
   };
 }

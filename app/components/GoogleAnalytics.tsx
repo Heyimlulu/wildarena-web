@@ -1,18 +1,17 @@
 'use client';
 
 import Script from 'next/script';
+import { GA_TRACKING_ID } from '../constants';
 
 export default function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
-  if (!gaId) {
+  if (!GA_TRACKING_ID) {
     return null;
   }
 
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -22,7 +21,7 @@ export default function GoogleAnalytics() {
           gtag('js', new Date());
           
           // Default configuration with privacy-focused settings
-          gtag('config', '${gaId}', {
+          gtag('config', '${GA_TRACKING_ID}', {
             page_path: window.location.pathname,
             anonymize_ip: true,
             allow_google_signals: false,

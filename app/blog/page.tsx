@@ -4,8 +4,8 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 
 export const metadata = {
-  title: 'Blog - WildWar',
-  description: 'Latest news and updates from WildWar',
+  title: 'Blog - Wild Arena',
+  description: 'Latest news and updates from Wild Arena',
 };
 
 export default function Blog() {

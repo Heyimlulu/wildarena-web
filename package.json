@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.36",
+    "@react-email/render": "^1.0.6",
     "@types/nodemailer": "^6.4.17",
     "@types/react-datepicker": "^7.0.0",
     "@types/react-map-gl": "^6.1.7",

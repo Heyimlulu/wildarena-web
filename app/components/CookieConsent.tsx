@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { GA_TRACKING_ID } from '../constants';
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
@@ -24,7 +25,7 @@ export default function CookieConsent() {
         personalization_storage: 'granted'
       });
       // Update configuration for full analytics
-      window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!, {
+      window.gtag('config', GA_TRACKING_ID!, {
         anonymize_ip: false,
         allow_google_signals: true,
         allow_ad_personalization_signals: true,
@@ -44,7 +45,7 @@ export default function CookieConsent() {
         personalization_storage: 'denied'
       });
       // Ensure privacy-focused settings
-      window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!, {
+      window.gtag('config', GA_TRACKING_ID!, {
         anonymize_ip: true,
         allow_google_signals: false,
         allow_ad_personalization_signals: false,

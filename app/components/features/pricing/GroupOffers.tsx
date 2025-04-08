@@ -1,10 +1,11 @@
 import { Briefcase, Cake, Users, UsersRound } from "lucide-react"
 import { PricingCard, PricingCardProps } from "./PricingOptions"
+import { UNIT_PRICE } from "@/app/constants"
 
 const groupOptions = [
     {
       name: "Fête d'Anniversaire",
-      price: 2100,
+      price: 15 * UNIT_PRICE,
       participants: "Jusqu'à 10 joueurs",
       maxPlayers: 10,
       duration: "2 heures",
@@ -18,7 +19,7 @@ const groupOptions = [
     },
     {
       name: "Team Building",
-      price: 6300,
+      price: 30 * UNIT_PRICE,
       participants: "Jusqu'à 20 joueurs",
       maxPlayers: 20,
       duration: "3 heures",
@@ -33,9 +34,9 @@ const groupOptions = [
     },
     {
       name: "Groupe d'Amis",
-      price: 1500,
-      participants: "Jusqu'à 6 joueurs",
-      maxPlayers: 6,
+      price: 12 * UNIT_PRICE,
+      participants: "Jusqu'à 8 joueurs",
+      maxPlayers: 8,
       duration: "90 minutes",
       icon: Users,
       features: [

@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { registerLocale } from "react-datepicker"
 import { fr } from "date-fns/locale/fr"
+import { API_ROUTES } from '@/app/constants';
 
 registerLocale('fr', fr)
 
@@ -54,7 +55,7 @@ export default function ContactForm() {
     }
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(API_ROUTES.CONTACT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

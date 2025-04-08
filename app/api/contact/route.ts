@@ -1,51 +1,34 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { sendContactFormEmail } from '@/app/lib/email';
 
 export async function POST(request: Request) {
   try {
-    const { name, email, subject, message, date, time, players } = await request.json();
+    const { name, email, message, date, time, players } = await request.json();
 
-    const formattedDate = new Date(date).toLocaleDateString('fr-FR', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric'
-    });
+    const formattedMessage = `
+      Détails de la réservation:
 
-    const emailBody = `
-        Nouvelle demande de réservation:
-        
-        Nom, Prénom: ${name}
-        Email: ${email}
-        Date: ${formattedDate}
-        Heure: ${time}
-        Nombre de joueurs: ${players}
-        ${message ? `\nMessage: ${message}` : ''}
+      Date: ${date}
+      Heure: ${time}
+      Nombre de joueurs: ${players}
+
+      Message du client:
+      ${message || 'Aucun message fourni'}
     `;
 
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.NEXT_EMAIL_USER,
-        pass: process.env.NEXT_EMAIL_PASSWORD,
-      },
+    const result = await sendContactFormEmail({
+      name,
+      email,
+      message: formattedMessage,
     });
 
-    await transporter.sendMail({
-      from: email,
-      to: process.env.NEXT_EMAIL_USER,
-      subject: `Réservation ${subject ? ` - ${subject}` : ''}`,
-      text: emailBody,
-    });
+    if (!result.success) {
+      throw new Error('Failed to send email');
+    }
 
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
-    console.error("Error sending email:", error)
+    console.error("Error sending email:", error);
     return NextResponse.json(
       { error: 'Failed to send email' },
       { status: 500 }
