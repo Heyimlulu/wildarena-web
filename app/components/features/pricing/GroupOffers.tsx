@@ -5,7 +5,7 @@ import { UNIT_PRICE } from "@/app/constants"
 const groupOptions = [
     {
       name: "Fête d'Anniversaire",
-      price: 15 * UNIT_PRICE,
+      price: Math.round((UNIT_PRICE * 6 * 10) / 4),
       participants: "Jusqu'à 10 joueurs",
       maxPlayers: 10,
       duration: "2 heures",
@@ -19,7 +19,7 @@ const groupOptions = [
     },
     {
       name: "Team Building",
-      price: 30 * UNIT_PRICE,
+      price: Math.round((UNIT_PRICE * 9 * 20) / 6),
       participants: "Jusqu'à 20 joueurs",
       maxPlayers: 20,
       duration: "3 heures",
@@ -34,7 +34,7 @@ const groupOptions = [
     },
     {
       name: "Groupe d'Amis",
-      price: 12 * UNIT_PRICE,
+      price: Math.round((UNIT_PRICE * 3 * 8) / 2),
       participants: "Jusqu'à 8 joueurs",
       maxPlayers: 8,
       duration: "90 minutes",

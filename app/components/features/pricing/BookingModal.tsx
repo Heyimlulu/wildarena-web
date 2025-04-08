@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import DatePicker from "react-datepicker"
 import { PricingCardProps } from "./PricingOptions"
 import { API_ROUTES } from "@/app/constants"
+import { calculateFlexiblePrice } from "@/app/utils/pricing"
 
 interface BookingFormData {
     name: string
@@ -172,13 +173,11 @@ export default function BookingModal({
                         </button>
                     </div>
 
-                    {bookingType === 'group' && (
-                        <div className="mb-6 p-4 bg-green-50 rounded-lg">
-                            <p className="text-green-800 text-center">
-                                Prix total: CHF {selectedOption?.price || 0}.-
-                            </p>
-                        </div>
-                    )}
+                    <div className="mb-6 p-4 bg-green-50 rounded-lg">
+                        <p className="text-green-800 text-center">
+                            Prix total: CHF {calculateFlexiblePrice(selectedOption!, formData).toFixed(2)}.-
+                        </p>
+                    </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
