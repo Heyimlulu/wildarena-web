@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { GA_TRACKING_ID } from '../constants';
+import { GA_TRACKING_ID } from '@/app/constants';
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);

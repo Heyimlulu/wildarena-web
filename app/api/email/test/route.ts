@@ -12,6 +12,7 @@ export async function GET() {
         service: "Arena Standard",
         date: "8 Avril 2025",
         time: "14:00",
+        period: "",
         players: 4,
         price: "100 CHF"
       }

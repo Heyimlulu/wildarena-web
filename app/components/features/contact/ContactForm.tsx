@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import { registerLocale } from "react-datepicker"
 import { fr } from "date-fns/locale/fr"
 import { API_ROUTES } from '@/app/constants';
+import ReCaptcha from '@/components/ReCaptcha';
 
 registerLocale('fr', fr)
 
@@ -20,6 +21,7 @@ export default function ContactForm() {
     date: null as Date | null,
     time: "",
     players: "1",
+    recaptchaToken: "",
   })
   const [status, setStatus] = useState({
     loading: false,
@@ -41,6 +43,10 @@ export default function ContactForm() {
     setFormData((prevState) => ({ ...prevState, date }))
   }
 
+  const handleReCaptchaVerify = (token: string) => {
+    setFormData(prev => ({ ...prev, recaptchaToken: token }));
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus({ loading: true, error: null, success: false })
@@ -52,6 +58,15 @@ export default function ContactForm() {
         success: false 
       })
       return
+    }
+
+    if (!formData.recaptchaToken) {
+      setStatus({
+        loading: false,
+        error: "Veuillez compléter la vérification reCAPTCHA",
+        success: false
+      });
+      return;
     }
 
     try {
@@ -78,7 +93,8 @@ export default function ContactForm() {
         message: "", 
         date: null, 
         time: "", 
-        players: "1" 
+        players: "1", 
+        recaptchaToken: ""
       })
 
       setTimeout(() => {
@@ -208,6 +224,10 @@ export default function ContactForm() {
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors resize-none"
           />
+        </div>
+
+        <div className="mt-4">
+          <ReCaptcha onVerify={handleReCaptchaVerify} />
         </div>
 
         <div className="flex justify-center">

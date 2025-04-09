@@ -1,9 +1,19 @@
 import { NextResponse } from 'next/server';
 import { sendContactFormEmail } from '@/app/lib/email';
+import { verifyReCaptcha } from '@/utils/recaptcha';
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message, date, time, period, players } = await request.json();
+    const { name, email, message, date, time, period, players, recaptchaToken } = await request.json();
+
+    // Verify reCAPTCHA token first
+    const isVerified = await verifyReCaptcha(recaptchaToken);
+    if (!isVerified) {
+      return NextResponse.json(
+        { error: 'reCAPTCHA verification failed' },
+        { status: 400 }
+      );
+    }
 
     const formattedMessage = `
       Détails de la réservation:

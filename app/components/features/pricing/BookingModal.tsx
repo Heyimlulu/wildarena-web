@@ -5,6 +5,7 @@ import { PricingCardProps } from "./PricingOptions"
 import { API_ROUTES } from "@/app/constants"
 import { calculateFlexiblePrice } from "@/app/utils/pricing"
 import { IndividualPricingOption } from "@/app/enums/pricing"
+import ReCaptcha from '@/components/ReCaptcha'
 
 interface BookingFormData {
     name: string
@@ -17,7 +18,8 @@ interface BookingFormData {
     package: string
     type: 'individual' | 'group'
     price: number
-  }
+    recaptchaToken: string
+}
 
 export default function BookingModal({
   isOpen,
@@ -41,6 +43,7 @@ export default function BookingModal({
         package: selectedOption?.name || "",
         type: bookingType,
         price: selectedOption?.price || 0,
+        recaptchaToken: "",
     })
 
     useEffect(() => {
@@ -76,6 +79,10 @@ export default function BookingModal({
         setFormData((prevState) => ({ ...prevState, date }))
     }
 
+    const handleReCaptchaVerify = (token: string) => {
+        setFormData(prev => ({ ...prev, recaptchaToken: token }));
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setStatus({ loading: true, error: null, success: false })
@@ -87,6 +94,15 @@ export default function BookingModal({
                 success: false 
             })
             return
+        }
+
+        if (!formData.recaptchaToken) {
+            setStatus({
+                loading: false,
+                error: "Veuillez compléter la vérification reCAPTCHA",
+                success: false
+            });
+            return;
         }
 
         try {
@@ -105,7 +121,8 @@ export default function BookingModal({
                     time: formData.time,
                     period: formData.period,
                     players: parseInt(formData.players),
-                    price: `${formData.price} CHF`
+                    price: `${formData.price} CHF`,
+                    recaptchaToken: formData.recaptchaToken
                 }),
             })
 
@@ -126,7 +143,8 @@ export default function BookingModal({
                     time: formData.time,
                     period: formData.period,
                     players: parseInt(formData.players),
-                    message: formData.message
+                    message: formData.message,
+                    recaptchaToken: formData.recaptchaToken
                 }),
             })
 
@@ -151,7 +169,8 @@ export default function BookingModal({
                 players: "1",
                 package: "",
                 type: bookingType,
-                price: 0
+                price: 0,
+                recaptchaToken: "",
             })
         } catch (error) {
             console.error(error)
@@ -311,6 +330,10 @@ export default function BookingModal({
                                 rows={4}
                                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors resize-none"
                             />
+                        </div>
+
+                        <div className="mt-4">
+                            <ReCaptcha onVerify={handleReCaptchaVerify} />
                         </div>
 
                         <div className="flex justify-center pt-4">
