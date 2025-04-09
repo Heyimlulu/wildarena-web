@@ -3,13 +3,13 @@ import { sendContactFormEmail } from '@/app/lib/email';
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message, date, time, players } = await request.json();
+    const { name, email, message, date, time, period, players } = await request.json();
 
     const formattedMessage = `
       Détails de la réservation:
 
       Date: ${date}
-      Heure: ${time}
+      Heure / Période: ${time || period}
       Nombre de joueurs: ${players}
 
       Message du client:

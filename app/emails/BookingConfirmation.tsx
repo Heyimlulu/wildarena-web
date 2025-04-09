@@ -19,6 +19,7 @@ interface BookingConfirmationEmailProps {
     service: string;
     date: string;
     time: string;
+    period: string;
     players: number;
     price: string;
   };
@@ -187,8 +188,8 @@ export const BookingConfirmationEmail = ({
                   <Text style={detailValue}>{bookingDetails.date}</Text>
                 </div>
                 <div>
-                  <Text style={detailLabel}>Heure</Text>
-                  <Text style={detailValue}>{bookingDetails.time}</Text>
+                  <Text style={detailLabel}>Heure / Période</Text>
+                  <Text style={detailValue}>{bookingDetails.time || bookingDetails.period}</Text>
                 </div>
                 <div>
                   <Text style={detailLabel}>Nombre de joueurs</Text>

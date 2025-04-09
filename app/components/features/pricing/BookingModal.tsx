@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker"
 import { PricingCardProps } from "./PricingOptions"
 import { API_ROUTES } from "@/app/constants"
 import { calculateFlexiblePrice } from "@/app/utils/pricing"
+import { IndividualPricingOption } from "@/app/enums/pricing"
 
 interface BookingFormData {
     name: string
@@ -11,6 +12,7 @@ interface BookingFormData {
     message: string
     date: Date | null
     time: string
+    period: string
     players: string
     package: string
     type: 'individual' | 'group'
@@ -34,6 +36,7 @@ export default function BookingModal({
         message: "",
         date: null,
         time: "",
+        period: "",
         players: selectedOption?.maxPlayers?.toString() || "1",
         package: selectedOption?.name || "",
         type: bookingType,
@@ -61,6 +64,8 @@ export default function BookingModal({
         "10:00", "11:00", "12:00", "14:00", 
         "15:00", "16:00", "17:00", "18:00"
     ]
+
+    const availablePeriods = ["Matin", "Après-midi"]
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target
@@ -98,6 +103,7 @@ export default function BookingModal({
                     service: formData.package,
                     date: formData.date.toLocaleDateString('fr-FR'),
                     time: formData.time,
+                    period: formData.period,
                     players: parseInt(formData.players),
                     price: `${formData.price} CHF`
                 }),
@@ -118,6 +124,7 @@ export default function BookingModal({
                     email: formData.email,
                     date: formData.date.toLocaleDateString('fr-FR'),
                     time: formData.time,
+                    period: formData.period,
                     players: parseInt(formData.players),
                     message: formData.message
                 }),
@@ -140,6 +147,7 @@ export default function BookingModal({
                 message: "",
                 date: null,
                 time: "",
+                period: "",
                 players: "1",
                 package: "",
                 type: bookingType,
@@ -226,24 +234,46 @@ export default function BookingModal({
                                     required
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="time" className="block text-gray-700 font-semibold mb-2">
-                                    Heure
-                                </label>
-                                <select
-                                    id="time"
-                                    name="time"
-                                    value={formData.time}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                    required
-                                >
-                                    <option value="">Sélectionnez une heure</option>
-                                    {availableTimes.map((time) => (
-                                        <option key={time} value={time}>{time}</option>
-                                    ))}
-                                </select>
-                            </div>
+                            {(selectedOption?.name !== IndividualPricingOption.HALF_DAY_PASS && selectedOption?.name !== IndividualPricingOption.FULL_DAY_PASS) &&
+                                <div>
+                                    <label htmlFor="time" className="block text-gray-700 font-semibold mb-2">
+                                        Heure
+                                    </label>
+                                    <select
+                                        id="time"
+                                        name="time"
+                                        value={formData.time}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
+                                        required
+                                    >
+                                        <option value="">Sélectionnez une heure</option>
+                                        {availableTimes.map((time) => (
+                                            <option key={time} value={time}>{time}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            }
+                            {selectedOption?.name === IndividualPricingOption.HALF_DAY_PASS &&
+                                <div>
+                                    <label htmlFor="period" className="block text-gray-700 font-semibold mb-2">
+                                        Période
+                                    </label>
+                                    <select
+                                        id="period"
+                                        name="period"
+                                        value={formData.period}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
+                                        required
+                                    >
+                                        <option value="">Sélectionnez une période</option>
+                                        {availablePeriods.map((period) => (
+                                            <option key={period} value={period}>{period}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            }
                         </div>
 
                         {bookingType === 'group' && (

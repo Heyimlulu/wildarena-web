@@ -11,6 +11,7 @@ export type BookingEmailData = {
     service: string;
     date: string;
     time: string;
+    period: string;
     players: number;
     price: string;
   };

@@ -4,7 +4,7 @@ import { UNIT_PRICE } from '@/app/constants';
 
 export async function POST(request: Request) {
   try {
-    const { customerName, customerEmail, bookingNumber, service, date, time, players, price } = await request.json();
+    const { customerName, customerEmail, bookingNumber, service, date, time, period, players, price } = await request.json();
 
     if (!customerName || !customerEmail || !service || !date || !time || !players) {
       return NextResponse.json(
@@ -21,6 +21,7 @@ export async function POST(request: Request) {
         service,
         date,
         time,
+        period,
         players,
         price: price || `${players * UNIT_PRICE} CHF`, // Default price calculation
       },
