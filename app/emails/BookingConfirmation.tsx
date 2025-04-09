@@ -189,7 +189,7 @@ export const BookingConfirmationEmail = ({
                 </div>
                 <div>
                   <Text style={detailLabel}>Heure / Période</Text>
-                  <Text style={detailValue}>{bookingDetails.time || bookingDetails.period}</Text>
+                  <Text style={detailValue}>{bookingDetails.time || bookingDetails.period || "-"}</Text>
                 </div>
                 <div>
                   <Text style={detailLabel}>Nombre de joueurs</Text>

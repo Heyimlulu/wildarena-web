@@ -9,6 +9,7 @@ import { registerLocale } from "react-datepicker"
 import { fr } from "date-fns/locale/fr"
 import { API_ROUTES } from '@/app/constants';
 import ReCaptcha from '@/components/ReCaptcha';
+import ReCaptchaPrivacy from '../../ReCaptchaPrivacy';
 
 registerLocale('fr', fr)
 
@@ -227,7 +228,8 @@ export default function ContactForm() {
         </div>
 
         <div className="mt-4">
-          <ReCaptcha onVerify={handleReCaptchaVerify} />
+          <ReCaptcha onVerify={handleReCaptchaVerify} action="contact_submit" />
+          <ReCaptchaPrivacy />
         </div>
 
         <div className="flex justify-center">

@@ -5,47 +5,49 @@ import Script from 'next/script';
 
 interface ReCaptchaProps {
   onVerify: (token: string) => void;
+  action?: string;
 }
 
 declare global {
   interface Window {
     grecaptcha: any;
-    onReCaptchaLoad: () => void;
   }
 }
 
-export default function ReCaptcha({ onVerify }: ReCaptchaProps) {
-  const handleReCaptchaVerify = useCallback(
-    (token: string) => {
+export default function ReCaptcha({ onVerify, action = 'submit' }: ReCaptchaProps) {
+  const executeReCaptcha = useCallback(async () => {
+    try {
+      const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {
+        action: action
+      });
       onVerify(token);
-    },
-    [onVerify]
-  );
+    } catch (error) {
+      console.error('reCAPTCHA error:', error);
+    }
+  }, [onVerify, action]);
 
   useEffect(() => {
-    // Initialize reCAPTCHA when component mounts
-    window.onReCaptchaLoad = () => {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha.render('recaptcha-container', {
-          sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-          callback: handleReCaptchaVerify,
-        });
-      });
-    };
+    // Load reCAPTCHA when component mounts
+    if (typeof window !== 'undefined') {
+      window.grecaptcha?.ready(executeReCaptcha);
+    }
+
+    // Re-execute reCAPTCHA every 2 minutes as tokens expire
+    const intervalId = setInterval(() => {
+      if (typeof window !== 'undefined') {
+        window.grecaptcha?.ready(executeReCaptcha);
+      }
+    }, 120000);
 
     return () => {
-      // Cleanup
-      window.onReCaptchaLoad = () => {};
+      clearInterval(intervalId);
     };
-  }, [handleReCaptchaVerify]);
+  }, [executeReCaptcha]);
 
   return (
-    <>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?onload=onReCaptchaLoad&render=explicit`}
-        strategy="lazyOnload"
-      />
-      <div id="recaptcha-container" className="mt-4" />
-    </>
+    <Script
+      src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+      strategy="lazyOnload"
+    />
   );
 }

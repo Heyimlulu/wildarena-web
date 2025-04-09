@@ -6,6 +6,7 @@ import { API_ROUTES } from "@/app/constants"
 import { calculateFlexiblePrice } from "@/app/utils/pricing"
 import { IndividualPricingOption } from "@/app/enums/pricing"
 import ReCaptcha from '@/components/ReCaptcha'
+import ReCaptchaPrivacy from '@/app/components/ReCaptchaPrivacy'
 
 interface BookingFormData {
     name: string
@@ -106,6 +107,8 @@ export default function BookingModal({
         }
 
         try {
+            const bookingNumber = Date.now().toString()
+
             // Send booking confirmation email
             const emailResponse = await fetch(API_ROUTES.ORDER_CONFIRMATION, {
                 method: 'POST',
@@ -115,14 +118,13 @@ export default function BookingModal({
                 body: JSON.stringify({
                     customerName: formData.name,
                     customerEmail: formData.email,
-                    bookingNumber: Date.now().toString(),
+                    bookingNumber,
                     service: formData.package,
                     date: formData.date.toLocaleDateString('fr-FR'),
                     time: formData.time,
                     period: formData.period,
                     players: parseInt(formData.players),
-                    price: `${formData.price} CHF`,
-                    recaptchaToken: formData.recaptchaToken
+                    price: `${formData.price} CHF`
                 }),
             })
 
@@ -139,6 +141,8 @@ export default function BookingModal({
                 body: JSON.stringify({
                     name: formData.name,
                     email: formData.email,
+                    bookingNumber,
+                    service: formData.package,
                     date: formData.date.toLocaleDateString('fr-FR'),
                     time: formData.time,
                     period: formData.period,
@@ -334,6 +338,7 @@ export default function BookingModal({
 
                         <div className="mt-4">
                             <ReCaptcha onVerify={handleReCaptchaVerify} />
+                            <ReCaptchaPrivacy />
                         </div>
 
                         <div className="flex justify-center pt-4">

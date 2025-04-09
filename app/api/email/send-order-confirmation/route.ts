@@ -1,24 +1,14 @@
 import { NextResponse } from 'next/server';
 import { sendBookingConfirmationEmail } from '@/app/lib/email';
 import { UNIT_PRICE } from '@/app/constants';
-import { verifyReCaptcha } from '@/utils/recaptcha';
 
 export async function POST(request: Request) {
   try {
-    const { customerName, customerEmail, bookingNumber, service, date, time, period, players, price, recaptchaToken } = await request.json();
+    const { customerName, customerEmail, bookingNumber, service, date, time, period, players, price } = await request.json();
 
-    if (!customerName || !customerEmail || !service || !date || !time || !players) {
+    if (!customerName || !customerEmail || !service || !date || !players) {
       return NextResponse.json(
         { error: 'Missing required fields' },
-        { status: 400 }
-      );
-    }
-
-    // Verify reCAPTCHA token first
-    const isVerified = await verifyReCaptcha(recaptchaToken);
-    if (!isVerified) {
-      return NextResponse.json(
-        { error: 'reCAPTCHA verification failed' },
         { status: 400 }
       );
     }
