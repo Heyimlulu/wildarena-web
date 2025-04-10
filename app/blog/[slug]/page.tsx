@@ -1,10 +1,10 @@
-import Header from '@/app/components/layout/Header';
-import { getAllPostSlugs, getPostData } from '../../utils/posts';
+import Header from '@/components/layout/Header';
+import { getAllPostSlugs, getPostData } from '../../../utils/posts';
 import { Metadata } from 'next';
-import Footer from '@/app/components/layout/Footer';
+import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import './blog-post.css';
+import '@/styles/blog-post.css';
 
 interface Props {
   params: {

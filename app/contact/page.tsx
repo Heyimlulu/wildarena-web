@@ -1,8 +1,8 @@
-import Header from "../components/layout/Header"
-import Footer from "../components/layout/Footer"
-import ContactForm from "../components/features/contact/ContactForm"
-import ContactInfo from "../components/features/contact/ContactInfo"
-import FAQ from "../components/shared/ui/FAQ"
+import Header from "@/components/layout/Header"
+import Footer from "@/components/layout/Footer"
+import ContactForm from "@/components/features/contact/ContactForm"
+import ContactInfo from "@/components/features/contact/ContactInfo"
+import FAQ from "@/components/shared/ui/FAQ"
 import { MessageCircle } from "lucide-react"
 
 export default function Contact() {

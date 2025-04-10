@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { getSortedPostsData } from '../utils/posts';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+import { getSortedPostsData } from '@/utils/posts';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 export const metadata = {
   title: 'Blog - Wild Arena',

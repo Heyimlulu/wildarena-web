@@ -1,6 +1,6 @@
-import Footer from '../components/layout/Footer'
-import Header from '../components/layout/Header'
-import FAQ from '../components/shared/ui/FAQ'
+import Footer from '@/components/layout/Footer'
+import Header from '@/components/layout/Header'
+import FAQ from '@/components/shared/ui/FAQ'
 
 export const metadata = {
   title: 'FAQ | Wild Arena',

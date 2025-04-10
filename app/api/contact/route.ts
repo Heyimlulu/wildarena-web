@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sendContactFormEmail } from '@/app/lib/email';
+import { sendContactFormEmail } from '@/lib/email';
 import { verifyReCaptcha } from '@/utils/recaptcha';
 
 export async function POST(request: Request) {

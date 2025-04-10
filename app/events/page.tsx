@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, MapPin } from "lucide-react"
-import Header from "../components/layout/Header"
-import Footer from "../components/layout/Footer"
+import Header from "@/components/layout/Header"
+import Footer from "@/components/layout/Footer"
 
 interface Event {
   title: string

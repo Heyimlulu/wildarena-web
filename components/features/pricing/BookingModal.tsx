@@ -2,11 +2,11 @@ import { Clock, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import DatePicker from "react-datepicker"
 import { PricingCardProps } from "./PricingOptions"
-import { API_ROUTES } from "@/app/constants"
-import { calculateFlexiblePrice } from "@/app/utils/pricing"
-import { IndividualPricingOption } from "@/app/enums/pricing"
+import { API_ROUTES } from "@/utils/constants"
+import { calculateFlexiblePrice } from "@/utils/pricing"
+import { IndividualPricingOption } from "@/enums/pricing"
 import ReCaptcha from '@/components/ReCaptcha'
-import ReCaptchaPrivacy from '@/app/components/ReCaptchaPrivacy'
+import ReCaptchaPrivacy from '@/components/ReCaptchaPrivacy'
 
 interface BookingFormData {
     name: string
@@ -71,6 +71,8 @@ export default function BookingModal({
 
     const availablePeriods = ["Matin", "Après-midi"]
 
+    const calculatedPrice = calculateFlexiblePrice(selectedOption!, formData.players).toFixed(2);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target
         setFormData((prevState) => ({ ...prevState, [name]: value }))
@@ -124,7 +126,7 @@ export default function BookingModal({
                     time: formData.time,
                     period: formData.period,
                     players: parseInt(formData.players),
-                    price: `${formData.price} CHF`
+                    price: `${calculatedPrice} CHF`
                 }),
             })
 
@@ -206,7 +208,7 @@ export default function BookingModal({
 
                     <div className="mb-6 p-4 bg-green-50 rounded-lg">
                         <p className="text-green-800 text-center">
-                            Prix total: CHF {calculateFlexiblePrice(selectedOption!, formData).toFixed(2)}.-
+                            Prix total: CHF {calculatedPrice}.-
                         </p>
                     </div>
 

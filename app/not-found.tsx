@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Banner from './components/shared/ui/Banner'
+import Banner from '@/components/shared/ui/Banner'
 
 export default function NotFound() {
   return (

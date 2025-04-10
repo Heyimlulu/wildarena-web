@@ -1,7 +1,7 @@
 import { Clock, UserCircle, Users, Zap } from "lucide-react";
 import { PricingCard, PricingCardProps } from "./PricingOptions";
-import { UNIT_PRICE } from "@/app/constants";
-import { IndividualPricingOption } from "@/app/enums/pricing";
+import { UNIT_PRICE } from "@/utils/constants";
+import { IndividualPricingOption } from "@/enums/pricing";
 
 const individualOptions = [
     {

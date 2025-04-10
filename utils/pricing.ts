@@ -21,8 +21,8 @@ function getPricePerPlayer(selectedOption: PricingCardProps['option'], playerCou
     }
 }
 
-export function calculateFlexiblePrice(selectedOption: PricingCardProps['option'], formData: { players: string }) {
-    const playerCount = parseInt(formData.players) || 1;
+export function calculateFlexiblePrice(selectedOption: PricingCardProps['option'], players: string) {
+    const playerCount = parseInt(players) || 1;
     const pricePerPlayer = getPricePerPlayer(selectedOption, playerCount) * playerCount;
     return Math.ceil(pricePerPlayer / 5) * 5;
 }

@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { registerLocale } from "react-datepicker"
 import { fr } from "date-fns/locale/fr"
-import { API_ROUTES } from '@/app/constants';
+import { API_ROUTES } from '@/utils/constants';
 import ReCaptcha from '@/components/ReCaptcha';
 import ReCaptchaPrivacy from '../../ReCaptchaPrivacy';
 

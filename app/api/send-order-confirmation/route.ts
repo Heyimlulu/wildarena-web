@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { sendBookingConfirmationEmail } from '@/app/lib/email';
-import { UNIT_PRICE } from '@/app/constants';
+import { sendBookingConfirmationEmail } from '@/lib/email';
+import { UNIT_PRICE } from '@/utils/constants';
 
 export async function POST(request: Request) {
   try {

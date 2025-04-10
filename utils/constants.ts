@@ -4,7 +4,7 @@ export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
 // API Routes
 export const API_ROUTES = {
   CONTACT: '/api/contact',
-  ORDER_CONFIRMATION: '/api/email/send-order-confirmation',
+  ORDER_CONFIRMATION: '/api/send-order-confirmation',
 } as const;
 
 // Common validation
