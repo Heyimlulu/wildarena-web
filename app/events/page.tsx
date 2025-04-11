@@ -71,7 +71,7 @@ export default function Events() {
                 </div>
               </div>
             )) : (
-              <p className="col-span-3 text-center text-gray-600 py-12">Aucun événement disponible actuellement.</p>
+              <p className="bg-green-50 col-span-3 text-center text-gray-600 py-12">Aucun événement disponible actuellement.</p>
             )}
           </div>
 

@@ -43,7 +43,7 @@ export default function CorporateEvents() {
               ))}
             </ul>
             <Link
-              href="/contact"
+              href="/pricing"
               className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Réservez votre événement d&apos;entreprise

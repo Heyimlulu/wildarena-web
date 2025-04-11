@@ -1,379 +1,278 @@
-import { Clock, X } from "lucide-react"
-import { useState, useEffect } from "react"
-import DatePicker from "react-datepicker"
-import { PricingCardProps } from "./PricingOptions"
-import { API_ROUTES } from "@/utils/constants"
-import { calculateFlexiblePrice } from "@/utils/pricing"
-import { IndividualPricingOption } from "@/enums/pricing"
-import ReCaptcha from '@/components/ReCaptcha'
-import ReCaptchaPrivacy from '@/components/ReCaptchaPrivacy'
+import { X, Clock } from 'lucide-react';
+import DatePicker from 'react-datepicker';
+import { fr } from 'date-fns/locale';
+import { useBookingForm } from '@/hooks/forms/useBookingForm';
+import { calculateFlexiblePrice } from '@/services/pricing/calculator';
+import { PricingCardProps } from './PricingOptions';
+import { IndividualPricingOption } from '@/enums/pricing';
+import ReCaptcha from '@/components/ReCaptcha';
+import ReCaptchaPrivacy from '@/components/ReCaptchaPrivacy';
+import React from 'react';
+import { AVAILABLE_TIMES, AVAILABLE_PERIODS } from '@/constants/time';
 
-interface BookingFormData {
-    name: string
-    email: string
-    message: string
-    date: Date | null
-    time: string
-    period: string
-    players: string
-    package: string
-    type: 'individual' | 'group'
-    price: number
-    recaptchaToken: string
+interface BookingModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  selectedOption: PricingCardProps['option'] | null;
+  bookingType: 'individual' | 'group';
 }
 
-export default function BookingModal({
-  isOpen,
-  onClose,
-  selectedOption,
-  bookingType
-}: {
-  isOpen: boolean
-  onClose: () => void
-  selectedOption: PricingCardProps['option'] | null
-  bookingType: 'individual' | 'group'
-}) {
-    const [formData, setFormData] = useState<BookingFormData>({
-        name: "",
-        email: "",
-        message: "",
-        date: null,
-        time: "",
-        period: "",
-        players: selectedOption?.maxPlayers?.toString() || "1",
-        package: selectedOption?.name || "",
-        type: bookingType,
-        price: selectedOption?.price || 0,
-        recaptchaToken: "",
-    })
+export function BookingModal({ isOpen, onClose, selectedOption, bookingType }: BookingModalProps) {
+  const {
+    values,
+    errors,
+    touched,
+    handleSubmit,
+    handleChange,
+    setFieldValue,
+    resetForm,
+    isSubmitting,
+    submitError,
+    submitSuccess
+  } = useBookingForm();
 
-    useEffect(() => {
-        if (selectedOption) {
-            setFormData(prev => ({
-                ...prev,
-                package: selectedOption.name,
-                price: selectedOption.price,
-                players: selectedOption.maxPlayers?.toString() || prev.players
-            }))
-        }
-    }, [selectedOption])
-
-    const [status, setStatus] = useState({
-        loading: false,
-        error: null as string | null,
-        success: false
-    })
-
-    const availableTimes = [
-        "10:00", "11:00", "12:00", "14:00", 
-        "15:00", "16:00", "17:00", "18:00"
-    ]
-
-    const availablePeriods = ["Matin", "Après-midi"]
-
-    const calculatedPrice = calculateFlexiblePrice(selectedOption!, formData.players).toFixed(2);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target
-        setFormData((prevState) => ({ ...prevState, [name]: value }))
+  React.useEffect(() => {
+    if (selectedOption) {
+      setFieldValue('package', selectedOption.name);
+      setFieldValue('price', selectedOption.price);
+      setFieldValue('players', selectedOption.maxPlayers?.toString() || '1');
     }
+  }, [selectedOption]);
 
-    const handleDateChange = (date: Date | null) => {
-        setFormData((prevState) => ({ ...prevState, date }))
-    }
+  if (!isOpen) return null;
 
-    const handleReCaptchaVerify = (token: string) => {
-        setFormData(prev => ({ ...prev, recaptchaToken: token }));
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        setStatus({ loading: true, error: null, success: false })
-
-        if (!formData.date) {
-            setStatus({ 
-                loading: false, 
-                error: "Veuillez sélectionner une date", 
-                success: false 
-            })
-            return
-        }
-
-        if (!formData.recaptchaToken) {
-            setStatus({
-                loading: false,
-                error: "Veuillez compléter la vérification reCAPTCHA",
-                success: false
-            });
-            return;
-        }
-
-        try {
-            const bookingNumber = Date.now().toString()
-
-            // Send booking confirmation email
-            const emailResponse = await fetch(API_ROUTES.ORDER_CONFIRMATION, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    customerName: formData.name,
-                    customerEmail: formData.email,
-                    bookingNumber,
-                    service: formData.package,
-                    date: formData.date.toLocaleDateString('fr-FR'),
-                    time: formData.time,
-                    period: formData.period,
-                    players: parseInt(formData.players),
-                    price: `${calculatedPrice} CHF`
-                }),
-            })
-
-            if (!emailResponse.ok) {
-                throw new Error('Failed to send booking confirmation')
-            }
-
-            // Send notification to admin
-            const contactResponse = await fetch(API_ROUTES.CONTACT, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    bookingNumber,
-                    service: formData.package,
-                    date: formData.date.toLocaleDateString('fr-FR'),
-                    time: formData.time,
-                    period: formData.period,
-                    players: parseInt(formData.players),
-                    message: formData.message,
-                    recaptchaToken: formData.recaptchaToken
-                }),
-            })
-
-            if (!contactResponse.ok) {
-                throw new Error('Failed to send admin notification')
-            }
-
-            setStatus({ loading: false, error: null, success: true })
-            setTimeout(() => {
-                onClose()
-                setStatus(prev => ({ ...prev, success: false }))
-            }, 2000)
-
-            // Reset form
-            setFormData({
-                name: "",
-                email: "",
-                message: "",
-                date: null,
-                time: "",
-                period: "",
-                players: "1",
-                package: "",
-                type: bookingType,
-                price: 0,
-                recaptchaToken: "",
-            })
-        } catch (error) {
-            console.error(error)
-            setStatus({ 
-                loading: false, 
-                error: "Une erreur s'est produite lors de l'envoi de la réservation. Veuillez réessayer.", 
-                success: false 
-            })
-        }
-    }
-
-    if (!isOpen) return null
-
+  if (submitSuccess) {
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-                <div className="p-6">
-                    <div className="flex justify-between items-center mb-6">
-                        <h2 className="text-2xl font-bold text-green-800">
-                            Réservation {selectedOption?.name || ''}
-                        </h2>
-                        <button 
-                            onClick={onClose}
-                            className="text-gray-500 hover:text-gray-700 transition-colors"
-                        >
-                            <X className="w-6 h-6" />
-                        </button>
-                    </div>
-
-                    <div className="mb-6 p-4 bg-green-50 rounded-lg">
-                        <p className="text-green-800 text-center">
-                            Prix total: CHF {calculatedPrice}.-
-                        </p>
-                    </div>
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
-                                    Nom, Prénom
-                                </label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="date" className="block text-gray-700 font-semibold mb-2">
-                                    Date
-                                </label>
-                                <DatePicker
-                                    selected={formData.date}
-                                    onChange={handleDateChange}
-                                    minDate={new Date()}
-                                    dateFormat="dd/MM/yyyy"
-                                    locale="fr"
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                    required
-                                />
-                            </div>
-                            {(selectedOption?.name !== IndividualPricingOption.HALF_DAY_PASS && selectedOption?.name !== IndividualPricingOption.FULL_DAY_PASS) &&
-                                <div>
-                                    <label htmlFor="time" className="block text-gray-700 font-semibold mb-2">
-                                        Heure
-                                    </label>
-                                    <select
-                                        id="time"
-                                        name="time"
-                                        value={formData.time}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                        required
-                                    >
-                                        <option value="">Sélectionnez une heure</option>
-                                        {availableTimes.map((time) => (
-                                            <option key={time} value={time}>{time}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            }
-                            {selectedOption?.name === IndividualPricingOption.HALF_DAY_PASS &&
-                                <div>
-                                    <label htmlFor="period" className="block text-gray-700 font-semibold mb-2">
-                                        Période
-                                    </label>
-                                    <select
-                                        id="period"
-                                        name="period"
-                                        value={formData.period}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                        required
-                                    >
-                                        <option value="">Sélectionnez une période</option>
-                                        {availablePeriods.map((period) => (
-                                            <option key={period} value={period}>{period}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            }
-                        </div>
-
-                        {bookingType === 'group' && (
-                            <div>
-                                <label htmlFor="players" className="block text-gray-700 font-semibold mb-2">
-                                    Nombre de joueurs
-                                </label>
-                                <select
-                                    id="players"
-                                    name="players"
-                                    value={formData.players}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
-                                    required
-                                >
-                                    {Array.from(
-                                        { length: selectedOption?.maxPlayers || 1 }, 
-                                        (_, i) => i + 1
-                                    ).map((num) => (
-                                        <option key={num} value={num}>{num}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        )}
-
-                        <div>
-                            <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
-                                Message (optionnel)
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                rows={4}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors resize-none"
-                            />
-                        </div>
-
-                        <div className="mt-4">
-                            <ReCaptcha onVerify={handleReCaptchaVerify} />
-                            <ReCaptchaPrivacy />
-                        </div>
-
-                        <div className="flex justify-center pt-4">
-                            {status.success ? (
-                                <div className="text-green-600 font-semibold text-center">
-                                    <p>Réservation confirmée! Un email de confirmation a été envoyé.</p>
-                                </div>
-                            ) : (
-                                <button
-                                    type="submit"
-                                    disabled={status.loading}
-                                    className="inline-flex items-center px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors disabled:opacity-50"
-                                >
-                                    {status.loading ? (
-                                        <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                                    ) : (
-                                        <>
-                                            <Clock className="w-5 h-5 mr-2" />
-                                            Confirmer la réservation
-                                        </>
-                                    )}
-                                </button>
-                            )}
-                        </div>
-                        
-                        {status.error && (
-                            <div className="mt-4 text-red-600 text-center">
-                                {status.error}
-                            </div>
-                        )}
-                    </form>
-                </div>
-            </div>
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full">
+          <div className="p-6 text-center">
+            <h3 className="text-2xl font-bold text-green-600 mb-4">Réservation confirmée!</h3>
+            <p className="text-gray-600 mb-6">
+              Nous vous avons envoyé un email de confirmation avec tous les détails de votre réservation.
+            </p>
+            <button
+              onClick={() => {
+                resetForm();
+                onClose();
+              }}
+              className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+            >
+              Fermer
+            </button>
+          </div>
         </div>
-    )
+      </div>
+    );
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-green-800">
+              Réservation {selectedOption?.name || ''}
+            </h2>
+            <button 
+              onClick={onClose}
+              className="text-gray-500 hover:text-gray-700 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="mb-6 p-4 bg-green-50 rounded-lg">
+            <p className="text-green-800 text-center">
+              Prix total: CHF {calculateFlexiblePrice(selectedOption!, values.players)}.-
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+                  Nom, Prénom
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={values.name}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
+                    errors.name && touched.name ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  required
+                />
+                {errors.name && touched.name && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.name}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
+                    errors.email && touched.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  required
+                />
+                {errors.email && touched.email && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.email}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="date" className="block text-gray-700 font-semibold mb-2">
+                  Date
+                </label>
+                <DatePicker
+                  selected={values.date}
+                  onChange={(date) => setFieldValue('date', date)}
+                  minDate={new Date()}
+                  dateFormat="dd/MM/yyyy"
+                  locale={fr}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
+                    errors.date && touched.date ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  required
+                />
+                {errors.date && touched.date && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.date}</p>
+                )}
+              </div>
+              {(selectedOption?.name !== IndividualPricingOption.HALF_DAY_PASS && selectedOption?.name !== IndividualPricingOption.FULL_DAY_PASS) && (
+                <div>
+                  <label htmlFor="time" className="block text-gray-700 font-semibold mb-2">
+                    Heure
+                  </label>
+                  <select
+                    id="time"
+                    name="time"
+                    value={values.time}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
+                      errors.time && touched.time ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                    required
+                  >
+                    <option value="">Sélectionnez une heure</option>
+                    {AVAILABLE_TIMES.map((time) => (
+                      <option key={time} value={time}>{time}</option>
+                    ))}
+                  </select>
+                  {errors.time && touched.time && (
+                    <p className="mt-1 text-red-500 text-sm">{errors.time}</p>
+                  )}
+                </div>
+              )}
+              {selectedOption?.name === IndividualPricingOption.HALF_DAY_PASS && (
+                <div>
+                  <label htmlFor="period" className="block text-gray-700 font-semibold mb-2">
+                    Période
+                  </label>
+                  <select
+                    id="period"
+                    name="period"
+                    value={values.period}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
+                      errors.period && touched.period ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                    required
+                  >
+                    <option value="">Sélectionnez une période</option>
+                    {AVAILABLE_PERIODS.map((period) => (
+                      <option key={period} value={period}>{period}</option>
+                    ))}
+                  </select>
+                  {errors.period && touched.period && (
+                    <p className="mt-1 text-red-500 text-sm">{errors.period}</p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {bookingType === 'group' && (
+              <div>
+                <label htmlFor="players" className="block text-gray-700 font-semibold mb-2">
+                  Nombre de joueurs
+                </label>
+                <select
+                  id="players"
+                  name="players"
+                  value={values.players}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
+                    errors.players && touched.players ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  required
+                >
+                  {Array.from(
+                    { length: selectedOption?.maxPlayers || 1 },
+                    (_, i) => i + 1
+                  ).map((num) => (
+                    <option key={num} value={num}>{num}</option>
+                  ))}
+                </select>
+                {errors.players && touched.players && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.players}</p>
+                )}
+              </div>
+            )}
+
+            <div>
+              <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
+                Message (optionnel)
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={values.message}
+                onChange={handleChange}
+                rows={4}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors resize-none"
+              />
+            </div>
+
+            <div className="mt-4">
+              <ReCaptcha onVerify={(token) => setFieldValue('recaptchaToken', token)} />
+              <ReCaptchaPrivacy />
+            </div>
+
+            <div className="flex justify-center pt-4">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex items-center px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors disabled:opacity-50"
+              >
+                {isSubmitting ? (
+                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <Clock className="w-5 h-5 mr-2" />
+                    Confirmer la réservation
+                  </>
+                )}
+              </button>
+            </div>
+
+            {submitError && (
+              <div className="mt-4 text-red-600 text-center">
+                {submitError}
+              </div>
+            )}
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }

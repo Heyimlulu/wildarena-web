@@ -1,6 +1,6 @@
 import { Briefcase, Cake, Users, UsersRound } from "lucide-react"
 import { PricingCard, PricingCardProps } from "./PricingOptions"
-import { UNIT_PRICE } from "@/utils/constants"
+import { UNIT_PRICE } from "@/constants/pricing"
 import { GroupPricingOption } from "@/enums/pricing"
 
 const groupOptions = [

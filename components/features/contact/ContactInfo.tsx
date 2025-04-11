@@ -31,8 +31,8 @@ export default function ContactInfo() {
           <div>
             <h3 className="font-semibold text-lg text-gray-800">Horaires</h3>
             <div className="text-gray-600 space-y-1">
-              <p>Lundi - Vendredi: 9:00 - 18:00</p>
-              <p>Samedi - Dimanche: 12:00 - 16:00</p>
+              <p>Lundi - Mardi : Fermé</p>
+              <p>Mercredi - Dimanche : 09:30 - 22:30</p>
             </div>
           </div>
         </div>

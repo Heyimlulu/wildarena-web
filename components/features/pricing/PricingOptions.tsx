@@ -7,7 +7,7 @@ import { registerLocale } from "react-datepicker"
 import { fr } from "date-fns/locale/fr"
 import GroupOffers from "./GroupOffers"
 import IndividualsOffers from "./IndividualsOffers"
-import BookingModal from "./BookingModal"
+import { BookingModal } from "./BookingModal"
 
 registerLocale('fr', fr)
 

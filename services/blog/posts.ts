@@ -11,10 +11,8 @@ export async function getPostData(slug: string): Promise<Post> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-  // Use gray-matter to parse the post metadata section
   const { data, content } = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html, { sanitize: false })
     .process(content);
@@ -22,18 +20,16 @@ export async function getPostData(slug: string): Promise<Post> {
 
   return {
     slug,
-    content: contentHtml,
     title: data.title,
     date: data.date,
+    content: contentHtml,
     description: data.description,
   };
 }
 
-export function getAllPostSlugs() {
+export function getAllPostSlugs(): string[] {
   const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return fileName.replace(/\.md$/, '');
-  });
+  return fileNames.map((fileName) => fileName.replace(/\.md$/, ''));
 }
 
 export function getSortedPostsData(): Omit<Post, 'content'>[] {
@@ -46,10 +42,8 @@ export function getSortedPostsData(): Omit<Post, 'content'>[] {
 
     return {
       slug,
-      title: data.title,
-      date: data.date,
-      description: data.description,
-    };
+      ...data,
+    } as Omit<Post, 'content'>;
   });
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getSortedPostsData } from '@/utils/posts';
+import { getSortedPostsData } from '@/services/blog/posts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 

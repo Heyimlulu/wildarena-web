@@ -1,114 +1,45 @@
 "use client"
 
 import React from 'react';
-import { useState } from "react"
 import { Calendar } from "lucide-react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { registerLocale } from "react-datepicker"
 import { fr } from "date-fns/locale/fr"
-import { API_ROUTES } from '@/utils/constants';
 import ReCaptcha from '@/components/ReCaptcha';
-import ReCaptchaPrivacy from '../../ReCaptchaPrivacy';
+import ReCaptchaPrivacy from '@/components/ReCaptchaPrivacy';
+import { useContactForm } from '@/hooks/forms/useContactForm';
+import { AVAILABLE_TIMES } from '@/constants/time';
 
 registerLocale('fr', fr)
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    date: null as Date | null,
-    time: "",
-    players: "1",
-    recaptchaToken: "",
-  })
-  const [status, setStatus] = useState({
-    loading: false,
-    error: null as string | null,
-    success: false
-  })
+  const {
+    values,
+    errors,
+    touched,
+    isLoading,
+    error,
+    success,
+    handleChange,
+    setFieldValue,
+    handleSubmit,
+    resetForm
+  } = useContactForm();
 
-  const availableTimes = [
-    "10:00", "11:00", "12:00", "14:00", 
-    "15:00", "16:00", "17:00", "18:00"
-  ]
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prevState) => ({ ...prevState, [name]: value }))
-  }
-
-  const handleDateChange = (date: Date | null) => {
-    setFormData((prevState) => ({ ...prevState, date }))
-  }
-
-  const handleReCaptchaVerify = (token: string) => {
-    setFormData(prev => ({ ...prev, recaptchaToken: token }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus({ loading: true, error: null, success: false })
-
-    if (!formData.date) {
-      setStatus({ 
-        loading: false, 
-        error: "Veuillez sélectionner une date", 
-        success: false 
-      })
-      return
-    }
-
-    if (!formData.recaptchaToken) {
-      setStatus({
-        loading: false,
-        error: "Veuillez compléter la vérification reCAPTCHA",
-        success: false
-      });
-      return;
-    }
-
-    try {
-      const response = await fetch(API_ROUTES.CONTACT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          date: formData.date.toISOString(),
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to send email')
-      }
-
-      setStatus({ loading: false, error: null, success: true })
-      setFormData({ 
-        name: "", 
-        email: "", 
-        subject: "", 
-        message: "", 
-        date: null, 
-        time: "", 
-        players: "1", 
-        recaptchaToken: ""
-      })
-
-      setTimeout(() => {
-        setStatus(prev => ({ ...prev, success: false }))
-      }, 5000)
-    } catch (error) {
-      console.error(error)
-      setStatus({ 
-        loading: false, 
-        error: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.", 
-        success: false 
-      })
-    }
+  if (success) {
+    return (
+      <div className="text-center p-6 bg-green-50 rounded-lg">
+        <h3 className="text-xl font-semibold text-green-800 mb-2">Message envoyé!</h3>
+        <p className="text-green-700 mb-4">Nous vous répondrons dans les plus brefs délais.</p>
+        <button
+          onClick={resetForm}
+          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+        >
+          Envoyer un autre message
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -124,7 +55,7 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
+              value={values.name}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
               required
@@ -138,7 +69,7 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
+              value={values.email}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
               required
@@ -152,8 +83,8 @@ export default function ContactForm() {
               Date
             </label>
             <DatePicker
-              selected={formData.date}
-              onChange={handleDateChange}
+              selected={values.date}
+              onChange={(date) => setFieldValue('date', date)}
               minDate={new Date()}
               dateFormat="dd/MM/yyyy"
               locale="fr"
@@ -168,13 +99,13 @@ export default function ContactForm() {
             <select
               id="time"
               name="time"
-              value={formData.time}
+              value={values.time}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
               required
             >
               <option value="">Sélectionnez une heure</option>
-              {availableTimes.map((time) => (
+              {AVAILABLE_TIMES.map((time) => (
                 <option key={time} value={time}>{time}</option>
               ))}
             </select>
@@ -186,7 +117,7 @@ export default function ContactForm() {
             <select
               id="players"
               name="players"
-              value={formData.players}
+              value={values.players}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
               required
@@ -206,7 +137,7 @@ export default function ContactForm() {
             type="text"
             id="subject"
             name="subject"
-            value={formData.subject}
+            value={values.subject}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
             required
@@ -220,7 +151,7 @@ export default function ContactForm() {
           <textarea
             id="message"
             name="message"
-            value={formData.message}
+            value={values.message}
             onChange={handleChange}
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors resize-none"
@@ -228,17 +159,17 @@ export default function ContactForm() {
         </div>
 
         <div className="mt-4">
-          <ReCaptcha onVerify={handleReCaptchaVerify} action="contact_submit" />
+          <ReCaptcha onVerify={(token) => setFieldValue('recaptchaToken', token)} action="contact_submit" />
           <ReCaptchaPrivacy />
         </div>
 
         <div className="flex justify-center">
           <button
             type="submit"
-            disabled={status.loading}
+            disabled={isLoading}
             className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors disabled:opacity-50"
           >
-            {status.loading ? (
+            {isLoading ? (
               <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
             ) : (
               <>
@@ -249,13 +180,13 @@ export default function ContactForm() {
           </button>
         </div>
 
-        {status.error && (
+        {error && (
           <div className="text-red-500 text-center font-medium">
-            {status.error}
+            {error}
           </div>
         )}
 
-        {status.success && (
+        {success && (
           <div className="text-green-500 text-center font-medium">
             Votre demande de réservation a été envoyée avec succès !
           </div>

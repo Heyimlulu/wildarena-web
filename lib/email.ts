@@ -1,6 +1,6 @@
 import { render } from '@react-email/render';
-import { BookingConfirmationEmail } from '../emails/BookingConfirmation';
-import { ContactFormEmail } from '../emails/ContactForm';
+import { BookingConfirmationEmail } from '../services/email/BookingConfirmation';
+import { ContactFormEmail } from '../services/email/ContactForm';
 import { sendEmail, type EmailTemplate } from './nodemailer';
 
 export type BookingEmailData = {

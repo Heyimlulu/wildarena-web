@@ -1,5 +1,5 @@
 import Header from '@/components/layout/Header';
-import { getAllPostSlugs, getPostData } from '../../../utils/posts';
+import { getAllPostSlugs, getPostData } from '@/services/blog/posts';
 import { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
