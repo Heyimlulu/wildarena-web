@@ -20,12 +20,6 @@ export default function NotFound() {
           >
             Retour à l&apos;accueil
           </Link>
-          <Link
-            href="/contact"
-            className="inline-block bg-[#166534] text-white px-6 py-3 rounded-lg hover:bg-[#1A7940] transition-colors"
-          >
-            Nous contacter
-          </Link>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getSortedPostsData } from '@/services/blog/posts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Blog - Wild Arena',
@@ -26,9 +27,11 @@ export default async function Blog() {
               {posts.map((post) => (
                 <article key={post.slug} className="relative isolate flex flex-col gap-8 lg:flex-row">
                   <div className="relative aspect-video sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                    <img
-                      alt=""
+                    <Image
                       src={post.image.url}
+                      alt={post.image.alt}
+                      width={1000}
+                      height={600}
                       className="absolute inset-0 size-full rounded-2xl bg-gray-50 object-cover"
                     />
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />

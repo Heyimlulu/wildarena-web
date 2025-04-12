@@ -44,7 +44,7 @@ export default function CareersPage() {
                 <Shield className="w-8 h-8 text-green-600" />
               </div>
               <h4 className="text-gray-900 text-lg font-semibold leading-7 mb-3 max-lg:text-center">Formation pratique</h4>
-              <p className="text-gray-500 text-sm font-normal leading-5 max-lg:text-center">Acquérez une expérience concrète dans l'organisation d'événements et la gestion de projets innovants.</p>
+              <p className="text-gray-500 text-sm font-normal leading-5 max-lg:text-center">Acquérez une expérience concrète dans l&apos;organisation d&apos;événements et la gestion de projets innovants.</p>
             </div>
             <div className="p-8 group rounded-2xl transition-all duration-500 bg-white hover:shadow-md">
               <div className="w-20 h-20 bg-green-50 rounded-xl flex items-center justify-center mb-5 max-lg:mx-auto transition-all duration-500">
@@ -58,7 +58,7 @@ export default function CareersPage() {
                 <Users className="w-8 h-8 text-green-600" />
               </div>
               <h4 className="text-gray-900 text-lg font-semibold leading-7 mb-3 max-lg:text-center">Développement</h4>
-              <p className="text-gray-500 text-sm font-normal leading-5 max-lg:text-center">Opportunités d'apprentissage continues et possibilité d'évolution vers un poste permanent.</p>
+              <p className="text-gray-500 text-sm font-normal leading-5 max-lg:text-center">Opportunités d&apos;apprentissage continues et possibilité d&apos;évolution vers un poste permanent.</p>
             </div>
           </div>
         </div>
