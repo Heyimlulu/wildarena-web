@@ -71,16 +71,16 @@ export default function Footer() {
                 ))}
               </ul>
               <div className="mt-6 flex space-x-4">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                <a href="https://www.facebook.com/profile.php?id=61573961254019" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
                   <Facebook size={20} />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                <a href="https://www.instagram.com/wild_arena_ch/" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
                   <Instagram size={20} />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                <a href="https://www.linkedin.com/in/wild-arena-637023356/" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
                   <Linkedin size={20} />
                 </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
+                <a href="https://www.tiktok.com/@wild_arena_ch" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-white">
                   <Music2 size={20} />
                 </a>
               </div>

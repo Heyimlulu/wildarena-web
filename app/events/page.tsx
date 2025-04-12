@@ -24,7 +24,7 @@ export default function Events() {
       <main className="container mx-auto px-4 py-12 sm:py-16">
         <div className="max-w-6xl mx-auto">
           <header className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-4">
               Événements à venir
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">

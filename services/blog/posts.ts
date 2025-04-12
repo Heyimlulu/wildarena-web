@@ -23,8 +23,18 @@ export async function getPostData(slug: string): Promise<Post> {
     title: data.title,
     date: data.date,
     content: contentHtml,
+    contentPreview: contentHtml.slice(0, 200) + '...',
     description: data.description,
+    image: {
+      url: data.image?.url || '/images/blog/default-blog-image.jpg',
+      alt: data.image?.alt || data.title,
+    },
   };
+}
+
+export async function getPostContentPreview(slug: string): Promise<string> {
+  const post = await getPostData(slug);
+  return post.contentPreview;
 }
 
 export function getAllPostSlugs(): string[] {
@@ -32,19 +42,27 @@ export function getAllPostSlugs(): string[] {
   return fileNames.map((fileName) => fileName.replace(/\.md$/, ''));
 }
 
-export function getSortedPostsData(): Omit<Post, 'content'>[] {
+export async function getSortedPostsData(): Promise<Omit<Post, 'content'>[]> {
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+  const allPostsData = fileNames.map(async (fileName) => {
     const slug = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
+    const contentPreview = await getPostContentPreview(slug);
 
     return {
       slug,
-      ...data,
-    } as Omit<Post, 'content'>;
+      title: data.title,
+      date: data.date,
+      description: data.description,
+      contentPreview: contentPreview,
+      image: {
+        url: data.image?.url || '/images/blog/default-blog-image.jpg',
+        alt: data.image?.alt || data.title,
+      },
+    };
   });
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return (await Promise.all(allPostsData)).sort((a, b) => (a.date < b.date ? 1 : -1));
 }

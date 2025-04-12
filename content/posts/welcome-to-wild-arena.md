@@ -1,7 +1,10 @@
 ---
 title: 'Bienvenue à Wild Arena'
-date: '2025-04-03'
+date: '2025-03-03'
 description: 'Une introduction à Wild Arena et ce qui la rend unique'
+image:
+  url: '/images/Hello.jpg'
+  alt: 'Hello by Allison Saeng (Unsplash)'
 ---
 
 ## Qu'est-ce que Wild Arena ?

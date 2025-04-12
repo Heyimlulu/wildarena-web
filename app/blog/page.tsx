@@ -8,27 +8,52 @@ export const metadata = {
   description: 'Latest news and updates from Wild Arena',
 };
 
-export default function Blog() {
-  const posts = getSortedPostsData();
+export default async function Blog() {
+  const posts = await getSortedPostsData();
 
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
-        <main className="container mx-auto px-4 py-8">
-          <h1 className="text-green-800 text-4xl font-bold mb-8">Dernières Actualités</h1>
-          <p className="text-gray-600 mb-8">Explorez nos dernières actualités et mises à jour</p>
-          <div className="grid gap-6">
-            {posts.map((post) => (
-              <article key={post.slug} className="p-6 bg-white rounded-lg hover:bg-white/50 transition">
-                <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-                  <p className="text-gray-400 mb-4">{new Date(post.date).toLocaleDateString('fr-FR')}</p>
-                  <p className="text-gray-600">{post.description}</p>
-                </Link>
-              </article>
-            ))}
+      <div className="bg-white py-12 sm:py-16">
+        <div className="mx-auto max-w-4xl lg:max-w-7xl px-6 lg:px-8">
+            <h2 className="text-pretty text-4xl font-semibold tracking-tight text-green-800 sm:text-5xl">
+              Dernières Actualités
+            </h2>
+            <p className="mt-2 text-lg/8 text-gray-600">
+              Explorez nos dernières actualités et mises à jour
+            </p>
+            <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+              {posts.map((post) => (
+                <article key={post.slug} className="relative isolate flex flex-col gap-8 lg:flex-row">
+                  <div className="relative aspect-video sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+                    <img
+                      alt=""
+                      src={post.image.url}
+                      className="absolute inset-0 size-full rounded-2xl bg-gray-50 object-cover"
+                    />
+                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-x-4 text-xs">
+                      <time dateTime={post.date} className="text-gray-500">
+                        {new Date(post.date).toLocaleDateString('fr-FR')}
+                      </time>
+                    </div>
+                    <div className="group relative max-w-xl">
+                      <h3 className="mt-3 text-lg/6 font-semibold text-green-800 group-hover:text-green-600">
+                        <Link href={`/blog/${post.slug}`}>
+                          <span className="absolute inset-0" />
+                          {post.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-5 text-sm/6 text-gray-600" dangerouslySetInnerHTML={{ __html: post.contentPreview }} />
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </main>
+        </div>
       <Footer />
     </div>
   );
