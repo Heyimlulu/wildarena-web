@@ -17,6 +17,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {[
                   { href: "/about", label: "A propos" },
+                  { href: "/practical-info", label: "Infos pratiques" },
                   { href: "/game-modes", label: "Modes de jeu" },
                   { href: "/events", label: "Événements" },
                   { href: "/blog", label: "Blog" },

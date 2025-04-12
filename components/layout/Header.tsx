@@ -22,6 +22,7 @@ export default function Header() {
 
   const navItems = [
     { href: "/about", label: "A propos" },
+    { href: "/practical-info", label: "Infos pratiques" },
     { href: "/game-modes", label: "Modes de jeu" },
     { href: "/events", label: "Événements" },
     { href: "/pricing", label: "Offres" },
