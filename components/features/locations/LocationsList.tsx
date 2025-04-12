@@ -1,12 +1,13 @@
 import React from 'react';
 import Image from "next/image"
 import { MapPin, Car, Clock, Calendar, Users } from "lucide-react"
+import pfynFinges from "@/images/locations/pfyn-finges.jpg"
 
 const locations = [
   {
     name: "Parc naturel régional Pfyn-Finges",
     address: "3970 Salquenen",
-    image: "/locations/pfyn-finges.jpg",
+    image: pfynFinges,
     parking: "Parking gratuit disponible",
     openingHours: "9h00 - 18h00",
     availability: "Lundi - Dimanche",

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
+import logo from "@/images/logo.png"
 
 const highlights = [
   "Expérience immersive en pleine nature",
@@ -19,7 +20,7 @@ export default function OurStory() {
             <div className="lg:w-1/2 w-full">
               <div className="relative aspect-square w-full max-w-lg mx-auto">
                 <Image
-                  src="/logo.png"
+                  src={logo}
                   alt="Wild Arena Logo"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

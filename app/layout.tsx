@@ -7,6 +7,25 @@ import { ABCGintoNord } from "@/utils/fonts";
 export const metadata: Metadata = {
   title: "Wild Arena",
   description: "Expérience de laser game en pleine nature, destiné à un public très large : familles, entreprises pour des événements de Team Building, groupe scolaire ou particuliers.",
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+  alternates: {
+    canonical: "https://wildarena.lulu.cloud/",
+  },
+  openGraph: {
+    title: "Wild Arena",
+    description: "Expérience de laser game en pleine nature, destiné à un public très large : familles, entreprises pour des événements de Team Building, groupe scolaire ou particuliers.",
+    type: "website",
+    url: "https://wildarena.lulu.cloud/",
+  },
+  twitter: {
+    title: "Wild Arena",
+    description: "Expérience de laser game en pleine nature, destiné à un public très large : familles, entreprises pour des événements de Team Building, groupe scolaire ou particuliers.",
+    card: "summary_large_image",
+    site: "@wildarena",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +37,12 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Wild Arena" />
+<link rel="manifest" href="/site.webmanifest" />
         <GoogleAnalytics />
       </head>
       <body
