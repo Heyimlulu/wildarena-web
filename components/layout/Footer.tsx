@@ -56,6 +56,7 @@ export default function Footer() {
                   { href: "/faq", label: "FAQ" },
                   { href: "/privacy-policy", label: "Politique de confidentialité" },
                   { href: "/terms-of-service", label: "Conditions générales" },
+                  { href: "/careers", label: "Emplois" },
                   { href: "https://linktr.ee/wild_arena_ch", label: "Réseaux sociaux", target: "_blank", rel: "noopener noreferrer" }
                 ].map((link) => (
                   <li key={link.href}>
