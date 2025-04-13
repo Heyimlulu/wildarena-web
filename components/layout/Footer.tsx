@@ -55,8 +55,8 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {[
                   { href: "/faq", label: "FAQ" },
+                  { href: "/terms-of-service", label: "Conditions d'utilisation" },
                   { href: "/privacy-policy", label: "Politique de confidentialité" },
-                  { href: "/terms-of-service", label: "Conditions générales" },
                   { href: "/careers", label: "Emplois" },
                   { href: "https://linktr.ee/wild_arena_ch", label: "Réseaux sociaux", target: "_blank", rel: "noopener noreferrer" }
                 ].map((link) => (
