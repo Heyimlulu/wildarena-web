@@ -42,12 +42,12 @@ export default function PrivacyPolicy() {
 
                 <div id="data-collection" className="mb-12">
                   <h3 className="font-manrope font-bold text-2xl text-gray-900 mb-4">1. Collecte des Données</h3>
-                  <p className="text-gray-500 leading-8">Nous collectons les types d'informations suivants :</p>
+                  <p className="text-gray-500 leading-8">Nous collectons les types d&apos;informations suivants :</p>
                   <ul className="list-disc pl-6 text-gray-500 space-y-2">
                     <li>Informations personnelles (nom, email)</li>
                     <li>Détails des réservations</li>
                     <li>Informations de paiement</li>
-                    <li>Données d'utilisation et analytiques</li>
+                    <li>Données d&apos;utilisation et analytiques</li>
                   </ul>
                 </div>
 

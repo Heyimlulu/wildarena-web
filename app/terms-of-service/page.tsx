@@ -29,7 +29,7 @@ export default function TermsAndConditions() {
             <LegalNavigation items={navigationItems} />
             
             <div className="w-full tab-pane max-md:px-4">
-              <h2 className="font-manrope font-bold lg:text-4xl text-3xl text-gray-900 mb-5">Conditions d'utilisation</h2>
+              <h2 className="font-manrope font-bold lg:text-4xl text-3xl text-gray-900 mb-5">Conditions d&apos;utilisation</h2>
               <div className="flex items-center gap-3 lg:mb-10 mb-8">
                 <Clock className="w-6 h-6 text-green-600" />
                 <p className="font-medium text-xl leading-8 text-green-600">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
@@ -37,12 +37,12 @@ export default function TermsAndConditions() {
               
               <div className="prose max-w-none">
                 <p className="font-normal text-lg leading-8 text-gray-500 lg:mb-10 mb-8">
-                  Ces conditions générales détaillent comment nous fournissons nos services, comment vous et nous pouvons modifier ou mettre fin au contrat, que faire en cas de problème, et d'autres informations importantes.
+                  Ces conditions générales détaillent comment nous fournissons nos services, comment vous et nous pouvons modifier ou mettre fin au contrat, que faire en cas de problème, et d&apos;autres informations importantes.
                 </p>
 
                 <div id="terms" className="mb-12">
                   <h3 className="font-manrope font-bold text-2xl text-gray-900 mb-4">1. Acceptation des Conditions</h3>
-                  <p className="text-gray-500 leading-8">En accédant et en utilisant les services de Wild Arena, vous acceptez d'être lié par ces conditions d'utilisation et toutes les lois et réglementations applicables.</p>
+                  <p className="text-gray-500 leading-8">En accédant et en utilisant les services de Wild Arena, vous acceptez d&apos;être lié par ces conditions d&apos;utilisation et toutes les lois et réglementations applicables.</p>
                 </div>
 
                 <div id="conduct" className="mb-12">
@@ -50,9 +50,9 @@ export default function TermsAndConditions() {
                   <p className="text-gray-500 leading-8">Les utilisateurs doivent :</p>
                   <ul className="list-disc pl-6 text-gray-500 space-y-2">
                     <li>Suivre toutes les consignes de sécurité</li>
-                    <li>Respecter l'équipement fourni</li>
+                    <li>Respecter l&apos;équipement fourni</li>
                     <li>Maintenir un comportement respectueux</li>
-                    <li>Se conformer aux restrictions d'âge et aux exigences</li>
+                    <li>Se conformer aux restrictions d&apos;âge et aux exigences</li>
                   </ul>
                 </div>
 
@@ -61,8 +61,8 @@ export default function TermsAndConditions() {
                   <p className="text-gray-500 leading-8">Nos services comprennent :</p>
                   <ul className="list-disc pl-6 text-gray-500 space-y-2">
                     <li>Réservation de sessions de jeu</li>
-                    <li>Location d'équipement</li>
-                    <li>Organisation d'événements de groupe</li>
+                    <li>Location d&apos;équipement</li>
+                    <li>Organisation d&apos;événements de groupe</li>
                     <li>Formation et briefings de sécurité</li>
                   </ul>
                 </div>
