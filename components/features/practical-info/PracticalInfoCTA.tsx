@@ -14,7 +14,7 @@ export const PracticalInfoCTA = () => {
           les voyageurs, les étudiants, les anniversaires et les événements d&apos;équipe !
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Link href="/pricing" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-green-700 shadow-sm hover:bg-green-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500">
+          <Link href="/pricing" className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 flex items-center justify-center transform hover:scale-105 shadow-lg group">
             Réservez maintenant
           </Link>
           <Link href="/contact" className="text-sm/6 font-semibold text-white hover:text-gray-200">

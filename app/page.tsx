@@ -5,6 +5,7 @@ import GameModes from "@/components/features/home/GameModes"
 import CorporateEvents from "@/components/features/home/CorporateEvents"
 import Footer from "@/components/layout/Footer"
 import Banner from "@/components/shared/ui/Banner"
+import Newsletter from "@/components/features/home/Newsletter"
 import { ArrowDown } from "lucide-react"
 import { LatestNews } from "@/components/features/home/LatestNews"
 
@@ -43,6 +44,7 @@ export default function Home() {
         <GameModes />
         <CorporateEvents />
         <LatestNews />
+        <Newsletter />
       </main>
       <Footer />
     </div>
