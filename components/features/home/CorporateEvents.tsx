@@ -32,7 +32,7 @@ export default function CorporateEvents() {
               {[
                 "Forfaits de team building personnalisables",
                 "Équipements et arènes de pointe",
-                "Coordinateurs d&apos;événements professionnels",
+                "Coordinateurs d'événements professionnels",
                 "Options de restauration disponibles"
               ].map((item, index) => (
                 <li key={index} className="flex items-start space-x-2">
