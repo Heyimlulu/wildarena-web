@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import logo from "@/images/logo.png"
+import { NavigationLink, NAVIGATION_LABELS, NAVIGATION_PATHS } from "@/enums/navigation"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -21,13 +22,13 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { href: "/about", label: "A propos" },
-    { href: "/practical-info", label: "Infos pratiques" },
-    { href: "/game-modes", label: "Modes de jeu" },
-    { href: "/events", label: "Événements" },
-    { href: "/pricing", label: "Offres" },
-    { href: "/locations", label: "Nos arènes" },
-    { href: "/contact", label: "Nous contacter" },
+    NavigationLink.ABOUT,
+    NavigationLink.PRACTICAL_INFO,
+    NavigationLink.GAME_MODES,
+    NavigationLink.EVENTS,
+    NavigationLink.PRICING,
+    NavigationLink.LOCATIONS,
+    NavigationLink.CONTACT,
   ]
 
   return (
@@ -47,15 +48,15 @@ export default function Header() {
           </button>
           <nav className="hidden md:block">
             <ul className="flex space-x-4 lg:space-x-6">
-              {navItems.map(({ href, label }) => (
-                <li key={href}>
+              {navItems.map((nav) => (
+                <li key={NAVIGATION_PATHS[nav]}>
                   <Link
-                    href={href}
+                    href={NAVIGATION_PATHS[nav]}
                     className={`px-3 py-2 rounded-lg hover:bg-green-700 transition-colors ${
-                      pathname === href ? "bg-green-700" : ""
+                      pathname === NAVIGATION_PATHS[nav] ? "bg-green-700" : ""
                     }`}
                   >
-                    {label}
+                    {NAVIGATION_LABELS[nav]}
                   </Link>
                 </li>
               ))}
@@ -65,16 +66,16 @@ export default function Header() {
         {isMenuOpen && (
           <nav className="mt-4 md:hidden">
             <ul className="flex flex-col space-y-1 bg-green-700 rounded-lg p-2">
-              {navItems.map(({ href, label }) => (
-                <li key={href}>
+              {navItems.map((nav) => (
+                <li key={NAVIGATION_PATHS[nav]}>
                   <Link
-                    href={href}
+                    href={NAVIGATION_PATHS[nav]}
                     className={`block px-4 py-3 rounded-lg hover:bg-green-600 transition-colors ${
-                      pathname === href ? "bg-green-600" : ""
+                      pathname === NAVIGATION_PATHS[nav] ? "bg-green-600" : ""
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {label}
+                    {NAVIGATION_LABELS[nav]}
                   </Link>
                 </li>
               ))}

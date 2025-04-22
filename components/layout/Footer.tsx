@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin, Music2 } from "lucide-react"
+import { NavigationLink, NAVIGATION_LABELS, NAVIGATION_PATHS } from "@/enums/navigation"
 
 export default function Footer() {
   return (
@@ -15,22 +16,22 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-semibold mb-3 sm:mb-4">Liens rapides</h4>
               <ul className="space-y-2.5">
-                {[
-                  { href: "/about", label: "A propos" },
-                  { href: "/practical-info", label: "Infos pratiques" },
-                  { href: "/game-modes", label: "Modes de jeu" },
-                  { href: "/events", label: "Événements" },
-                  { href: "/blog", label: "Blog" },
-                  { href: "/pricing", label: "Offres" },
-                  { href: "/locations", label: "Nos arènes" },
-                  { href: "/contact", label: "Nous contacter" },
-                ].map((link) => (
-                  <li key={link.href}>
+                {[ 
+                  NavigationLink.ABOUT,
+                  NavigationLink.PRACTICAL_INFO,
+                  NavigationLink.GAME_MODES,
+                  NavigationLink.EVENTS,
+                  NavigationLink.BLOG,
+                  NavigationLink.PRICING,
+                  NavigationLink.LOCATIONS,
+                  NavigationLink.CONTACT,
+                ].map((nav) => (
+                  <li key={NAVIGATION_PATHS[nav]}>
                     <Link 
-                      href={link.href} 
+                      href={NAVIGATION_PATHS[nav]} 
                       className="text-gray-200 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                     >
-                      {link.label}
+                      {NAVIGATION_LABELS[nav]}
                     </Link>
                   </li>
                 ))}
@@ -53,21 +54,20 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-semibold mb-3 sm:mb-4">Informations</h4>
               <ul className="space-y-2.5">
-                {[
-                  { href: "/faq", label: "FAQ" },
-                  { href: "/terms-of-service", label: "Conditions d'utilisation" },
-                  { href: "/privacy-policy", label: "Politique de confidentialité" },
-                  { href: "/careers", label: "Emplois" },
-                  { href: "https://linktr.ee/wild_arena_ch", label: "Réseaux sociaux", target: "_blank", rel: "noopener noreferrer" }
-                ].map((link) => (
-                  <li key={link.href}>
+                {[ 
+                  NavigationLink.FAQ,
+                  NavigationLink.TERMS_OF_SERVICE,
+                  NavigationLink.PRIVACY_POLICY,
+                  NavigationLink.CAREERS,
+                  NavigationLink.SOCIALS,
+                ].map((nav) => (
+                  <li key={NAVIGATION_PATHS[nav]}>
                     <Link 
-                      href={link.href} 
-                      target={link.target}
-                      rel={link.rel}
+                      href={NAVIGATION_PATHS[nav]} 
                       className="text-gray-200 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                      {...(nav === NavigationLink.SOCIALS ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
-                      {link.label}
+                      {NAVIGATION_LABELS[nav]}
                     </Link>
                   </li>
                 ))}
