@@ -3,25 +3,25 @@
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { Offer } from '@/types/models/offers';
-import { ArrowRight, Briefcase, Calendar, MapPin, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, Briefcase, Calendar, TrendingUp, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
 const opporunities = [
   {
-    title: 'Objectifs clairs',
-    description: 'Des objectifs clairs et des indicateurs de performance pour vous aider à atteindre vos objectifs.',
-    icon: <Target className="w-8 h-8 text-green-600" />
+    title: 'Innovation',
+    description: 'Une culture d\'innovation et de créativité qui vous permet d\'apporter votre touche personnelle.',
+    icon: <TrendingUp className="w-8 h-8 text-green-600" />
   },
   {
     title: 'Flexibilité',
-    description: 'Des horaires flexibles pour vous aider à gérer vos priorités.',
+    description: 'Des horaires flexibles pour vous aider à gérer vos priorités et à trouver un équilibre idéal entre vie personnelle et professionnelle.',
     icon: <Calendar className="w-8 h-8 text-green-600" />
   },
   {
-    title: 'Emplacement',
-    description: 'Un emplacement idéal pour vous aider à concilier votre vie personnelle et professionnelle.',
-    icon: <MapPin className="w-8 h-8 text-green-600" />
+    title: 'Social',
+    description: 'Rejoignez une équipe dynamique et passionnée qui s\'engage à vous aider à atteindre vos objectifs.',
+    icon: <MessageCircle className="w-8 h-8 text-green-600" />
   }
 ]
 
@@ -69,7 +69,7 @@ export default function CareersPage() {
           </div>
 
 
-          <h3 className="text-gray-900 text-center lg:text-4xl text-3xl font-bold leading-10 mb-5">Stages et opportunités pour les étudiants et jeunes diplômés</h3>
+          {/* <h3 className="text-gray-900 text-center lg:text-4xl text-3xl font-bold leading-10 mb-5">Stages et opportunités pour les étudiants et jeunes diplômés</h3>
           <p className="text-gray-500 text-center text-lg font-normal leading-7 lg:mb-14 mb-6">Nous offrons des stages et des opportunités pour les étudiants et jeunes diplômés souhaitant acquérir une expérience unique dans le domaine du divertissement.</p>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-x-4 lg:gap-x-8 gap-y-4 lg:pb-24 pb-10 max-w-lg mx-auto md:max-w-3xl lg:max-w-full">
             {internshipsOpportunities.map((opportunity, index) => (
@@ -81,7 +81,7 @@ export default function CareersPage() {
                 <p className="text-gray-500 text-sm font-normal leading-5 max-lg:text-center">{opportunity.description}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
         <div className="lg:py-24 md:py-16 py-10 bg-slate-50 xl:px-0 px-10">
           <h2 className="text-gray-900 text-center font-manrope lg:text-4xl text-3xl font-bold leading-10 mb-14">Postes disponibles</h2>
