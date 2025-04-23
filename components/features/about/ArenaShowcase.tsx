@@ -2,11 +2,10 @@ import Image, { StaticImageData } from "next/image"
 import { Play } from "lucide-react"
 import React from "react"
 import Link from "next/link"
-import arena1 from "@/images/arenas/arena1.gif"
-import arena2 from "@/images/arenas/arena2.gif"
+import arena1 from "@/images/arenas/finges-1.gif"
+import arena2 from "@/images/arenas/office-corporate.gif"
 import event1 from "@/images/arenas/event1.jpg"
 import equipment from "@/images/arenas/equipment.jpg"
-
 
 interface ArenaImage {
   src: StaticImageData
