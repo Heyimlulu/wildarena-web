@@ -21,7 +21,7 @@ export const NAVIGATION_LABELS: Record<NavigationLink, string> = {
   [NavigationLink.GAME_MODES]: "Modes de jeu",
   [NavigationLink.EVENTS]: "Événements",
   [NavigationLink.BLOG]: "Blog",
-  [NavigationLink.PRICING]: "Offres",
+  [NavigationLink.PRICING]: "Tarifs",
   [NavigationLink.LOCATIONS]: "Nos arènes",
   [NavigationLink.CONTACT]: "Nous contacter",
   [NavigationLink.FAQ]: "FAQ",
