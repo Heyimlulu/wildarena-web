@@ -6,9 +6,9 @@ export default function Careers() {
   return (
     <section className="py-12 bg-white">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800 text-center">Rejoignez l'équipe</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800 text-center">Rejoignez l&apos;équipe</h2>
         <p className="text-gray-700 text-lg mb-6 text-center">
-          Vous souhaitez rejoindre une équipe dynamique et passionnée ? Nous recherchons régulièrement des animateurs, techniciens et volontaires pour agrandir l'équipe !
+          Vous souhaitez rejoindre une équipe dynamique et passionnée ? Nous recherchons régulièrement des animateurs, techniciens et volontaires pour agrandir l&apos;équipe !
         </p>
         <div className="text-center">
           <Link
