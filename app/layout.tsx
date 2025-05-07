@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description: "Expérience de laser game en pleine nature, destiné à un public très large : familles, entreprises pour des événements de Team Building, groupe scolaire ou particuliers.",
   keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
   alternates: {
-    canonical: "https://wildarena.lulu.cloud/",
+    canonical: "https://wildarena.ch//",
   },
   openGraph: {
     title: "Wild Arena",
     description: "Expérience de laser game en pleine nature, destiné à un public très large : familles, entreprises pour des événements de Team Building, groupe scolaire ou particuliers.",
     type: "website",
-    url: "https://wildarena.lulu.cloud/",
+    url: "https://wildarena.ch/",
   },
   twitter: {
     title: "Wild Arena",

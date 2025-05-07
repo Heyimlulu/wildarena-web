@@ -50,13 +50,13 @@ export default async function BlogPost({ params }: Props) {
 
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
           <div className="flex justify-center space-x-4 mt-8">
-            <a href={`https://www.facebook.com/sharer/sharer.php?u=https://wildarena.lulu.cloud/blog/${post.slug}`} target="_blank" rel="noreferrer">
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=https://wildarena.ch/blog/${post.slug}`} target="_blank" rel="noreferrer">
               <Facebook className="w-8 h-8 text-green-500 hover:text-green-600" />
             </a>
-            <a href={`https://twitter.com/intent/tweet?url=https://wildarena.lulu.cloud/blog/${post.slug}&text=${post.title}`} target="_blank" rel="noreferrer">
+            <a href={`https://twitter.com/intent/tweet?url=https://wildarena.ch/blog/${post.slug}&text=${post.title}`} target="_blank" rel="noreferrer">
               <Twitter className="w-8 h-8 text-green-500 hover:text-green-600" />
             </a>
-            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://wildarena.lulu.cloud/blog/${post.slug}`} target="_blank" rel="noreferrer">
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://wildarena.ch/blog/${post.slug}`} target="_blank" rel="noreferrer">
               <Linkedin className="w-8 h-8 text-green-500 hover:text-green-600" />
             </a>
             <a href={`https://www.instagram.com/wildarena`} target="_blank" rel="noreferrer">
