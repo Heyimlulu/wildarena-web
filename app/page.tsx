@@ -8,6 +8,7 @@ import Banner from "@/components/shared/ui/Banner"
 import Newsletter from "@/components/features/home/Newsletter"
 import { ArrowDown } from "lucide-react"
 import { LatestNews } from "@/components/features/home/LatestNews"
+import Gallery from "@/components/features/home/Gallery"
 
 // For SEO optimization
 export const metadata = {
@@ -43,6 +44,7 @@ export default function Home() {
         <Features />
         <GameModes />
         <CorporateEvents />
+        <Gallery />
         <LatestNews />
         <Newsletter />
       </main>
