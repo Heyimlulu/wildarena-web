@@ -3,7 +3,7 @@ title: 'Arènes en plein air'
 date: '2025-03-31'
 description: 'Découvrez nos arènes en plein air'
 image:
-  url: '/images/Panoramic Mountain View Unsplash.jpg'
+  url: '/blog/Panoramic Mountain View Unsplash.jpg'
   alt: 'Panoramic Mountain View by Unsplash'
 ---
 

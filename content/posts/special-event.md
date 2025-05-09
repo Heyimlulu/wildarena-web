@@ -3,7 +3,7 @@ title: 'Evénements spéciaux'
 date: '2025-03-31'
 description: 'Découvrez nos événements spéciaux'
 image:
-  url: '/images/Green Text Photo.jpg'
+  url: '/blog/Green Text Photo.jpg'
   alt: 'Green Text Photo by Pramod Tiwari (Unsplash)'
 ---
 
