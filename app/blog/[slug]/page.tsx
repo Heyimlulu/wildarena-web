@@ -75,7 +75,7 @@ export default async function BlogPost({ params }: Props) {
                 <Image src={post.image.url} alt={post.image.alt} width={1000} height={600} className="w-16 h-16 rounded" />
                 <Link href={`/blog/${post.slug}`} className="flex flex-col hover:underline">
                   <p className="font-medium text-green-800">{post.title}</p>
-                  <p className="text-sm text-gray-400">{new Date(post.date).toLocaleDateString('fr-FR')}</p>
+                  <p className="text-sm text-gray-400">{new Date(post.date).toLocaleDateString('fr-CH')}</p>
                 </Link>
               </div>
             ))}

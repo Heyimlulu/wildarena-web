@@ -39,7 +39,7 @@ export default async function Blog() {
                   <div>
                     <div className="flex items-center gap-x-4 text-xs">
                       <time dateTime={post.date} className="text-gray-500">
-                        {new Date(post.date).toLocaleDateString('fr-FR')}
+                        {new Intl.DateTimeFormat('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(post.date))}
                       </time>
                     </div>
                     <div className="group relative max-w-xl">

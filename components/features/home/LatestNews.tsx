@@ -21,7 +21,7 @@ export const LatestNews = async () => {
                   priority
                 />
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg">
-                <p className="text-sm text-gray-400 mb-1">{new Date(posts[0].date).toLocaleDateString()}</p>
+                <p className="text-sm text-gray-400 mb-1">{new Intl.DateTimeFormat('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(posts[0].date))}</p>
                 <h3 className="font-semibold text-green-700">{posts[0].title}</h3>
                 <p className="text-sm text-gray-600">{posts[0].description}</p>
               </div>
@@ -39,7 +39,7 @@ export const LatestNews = async () => {
                   priority
                 />
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg">
-                <p className="text-sm text-gray-400 mb-1">{new Date(posts[1].date).toLocaleDateString()}</p>
+                <p className="text-sm text-gray-400 mb-1">{new Intl.DateTimeFormat('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(posts[1].date))}</p>
                 <h3 className="font-semibold text-green-700">{posts[1].title}</h3>
                 <p className="text-sm text-gray-600">{posts[1].description}</p>
               </div>
