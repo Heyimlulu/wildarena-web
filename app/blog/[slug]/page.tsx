@@ -48,6 +48,10 @@ export default async function BlogPost({ params }: Props) {
 
           <h1 className="text-3xl text-green-800 font-bold leading-tight mt-2">{post.title}</h1>
 
+          <time dateTime={post.date} className="text-sm text-gray-500">
+            {new Date(post.date).toLocaleDateString('fr-CH', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
           <div className="flex justify-center space-x-4 mt-8">
             <a href={`https://www.facebook.com/sharer/sharer.php?u=https://wildarena.ch/blog/${post.slug}`} target="_blank" rel="noreferrer">
@@ -70,15 +74,20 @@ export default async function BlogPost({ params }: Props) {
           <div className='sm:sticky sm:top-36'>
             <h2 className="text-lg font-semibold mb-4">Articles récents</h2>
 
-            {posts.slice(0, 3).map((post) => (
-              <div key={post.slug} className="flex items-start space-x-4 mb-4">
-                <Image src={post.image.url} alt={post.image.alt} width={1000} height={600} className="w-16 h-16 rounded" />
-                <Link href={`/blog/${post.slug}`} className="flex flex-col hover:underline">
-                  <p className="font-medium text-green-800">{post.title}</p>
-                  <p className="text-sm text-gray-400">{new Date(post.date).toLocaleDateString('fr-CH')}</p>
-                </Link>
-              </div>
-            ))}
+            {posts
+              .slice(0, 6)
+              .filter((p) => p.slug !== post.slug)
+              .map((post) => (
+                <div key={post.slug} className="flex items-start space-x-4 mb-4">
+                  <Image src={post.image.url} alt={post.image.alt} width={1000} height={600} className="w-16 h-16 rounded" />
+                  <Link href={`/blog/${post.slug}`} className="flex flex-col hover:underline">
+                    <p className="font-medium text-green-800">{post.title}</p>
+                    <time dateTime={post.date} className="text-sm text-gray-400">
+                      {new Date(post.date).toLocaleDateString('fr-CH', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </time>
+                  </Link>
+                </div>
+              ))}
           </div>
         </div>
 

@@ -93,3 +93,8 @@
 .blog-post-back-link:hover {
   color: #166534;
 }
+
+.blog-post-content hr {
+  border-color: #15803d;
+  margin: 2rem 0;
+}

@@ -49,7 +49,7 @@ export const LatestNews = async () => {
         {/* Recent Section */}
         <h2 className="text-2xl text-green-800 font-semibold mb-6">Derniers articles</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {posts.slice(2).map((post) => (
+          {posts.slice(2, 5).map((post) => (
             <Link className="rounded-2xl overflow-hidden bg-white shadow-md group" key={post.slug} href={`/blog/${post.slug}`}>
               <div className="relative h-56 w-full">
                   <Image
@@ -60,7 +60,7 @@ export const LatestNews = async () => {
                     priority
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <h3 className="font-semibold text-white">{post.title}</h3>
+                    <h3 className="font-semibold text-white text-center mx-4">{post.title}</h3>
                   </div>
                 <div className="p-4">
                   <p className="text-sm text-gray-500">{new Date(post.date).toLocaleDateString()}</p>
