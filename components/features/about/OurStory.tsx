@@ -33,7 +33,7 @@ export default function OurStory() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-green-800">Notre Histoire</h2>
               <div className="space-y-4 text-gray-600 mb-8">
                 <p className="text-base sm:text-lg leading-relaxed">
-                  Wild Arena a été fondée en 2025 par un groupe de passionnés du laser tag qui va pour objectif de proposer une expérience de jeu en pleine nature.
+                  Wild Arena a été fondée en 2025 par un groupe de passionnés du laser game qui va pour objectif de proposer une expérience de jeu en pleine nature.
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
                   Des joueurs occasionnels aux équipes compétitives, Wild Arena offre quelque chose pour tout le monde grâce à nos arènes et notre équipement de pointe.
