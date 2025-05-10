@@ -1,11 +1,33 @@
 import { MetadataRoute } from 'next'
+import fs from 'fs'
+import path from 'path'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://wildarena.ch/'
+  const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://wildarena.ch'
+  const blogDir = path.join(process.cwd(), 'content/posts')
+  let blogUrls: MetadataRoute.Sitemap = []
+
+  try {
+    const files = fs.readdirSync(blogDir)
+    blogUrls = files
+      .filter((file) => file.endsWith('.md'))
+      .map((file) => {
+        const slug = file.replace(/\.md$/, '')
+        return {
+          url: `${baseUrl}/blog/${slug}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.4,
+        }
+      })
+  } catch (error) {
+    // If reading fails, just skip blog URLs
+    blogUrls = []
+  }
 
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
@@ -37,9 +59,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
+    ...blogUrls,
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
