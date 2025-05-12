@@ -5,8 +5,9 @@ import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Blog - Wild Arena',
-  description: 'Latest news and updates from Wild Arena',
+  title: 'Wild Arena | Blog',
+  description: 'Découvrez les dernières actualités et mises à jour de Wild Arena',
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
 };
 
 export default async function Blog() {

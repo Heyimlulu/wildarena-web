@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import Banner from '@/components/shared/ui/Banner'
 
+export const metadata = {
+  title: 'Wild Arena | Page Non Trouvée',
+  description: 'Page non trouvée - Wild Arena',
+}
+
 export default function NotFound() {
   return (
     <div className="relative w-full h-[100svh] bg-[#166534] overflow-hidden flex justify-center items-center">

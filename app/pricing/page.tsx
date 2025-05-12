@@ -4,6 +4,12 @@ import PricingOptions from "@/components/features/pricing/PricingOptions"
 import FAQ from "@/components/shared/ui/FAQ"
 import { CalendarCheck } from "lucide-react"
 
+export const metadata = {
+  title: 'Wild Arena | Tarifs',
+  description: 'Découvrez nos différents tarifs et réservez votre place dès maintenant !',
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+}
+
 export default function Pricing() {
   return (
     <div className="min-h-screen bg-gray-100">

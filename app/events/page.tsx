@@ -17,6 +17,12 @@ const events: Event[] = [
   // Events can be added here later
 ]
 
+export const metadata = {
+  title: 'Wild Arena | Événements',
+  description: 'Découvrez nos événements spéciaux et réservez votre place dès maintenant !',
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+}
+
 export default function Events() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -33,7 +39,7 @@ export default function Events() {
           </header>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {events.length > 0 ? events.map((event, index) => (
+            {events.length > 0 && events.map((event, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
@@ -70,10 +76,14 @@ export default function Events() {
                   </Link>
                 </div>
               </div>
-            )) : (
-              <p className="bg-green-50 col-span-3 text-center text-gray-600 py-12">Aucun événement disponible actuellement.</p>
-            )}
+            ))}
           </div>
+
+          {events.length === 0 && (
+            <div className="lg:max-w-3xl md:max-w-xl sm:max-w-md max-w-sm mx-auto border border-slate-200 bg-white rounded-2xl p-12">
+              <p className="text-gray-500 text-center text-lg font-normal leading-7">Aucun événement disponible actuellement.</p>
+            </div>
+          )}
 
           <div className="mt-12 text-center">
             <div className="bg-green-50 p-8 rounded-xl">

@@ -6,8 +6,9 @@ import { PracticalInfoHero } from '@/components/features/practical-info/Practica
 import { PracticalInfoCTA } from '@/components/features/practical-info/PracticalInfoCTA';
 
 export const metadata: Metadata = {
-  title: 'Practical Information | Wild Arena',
-  description: 'Find all practical information about Wild Arena laser game, including pricing, opening hours, and frequently asked questions.',
+  title: 'Wild Arena | Informations pratiques',
+  description: 'Informations pratiques sur Wild Arena - Tarifs, horaires d\'ouverture et FAQ',
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
 };
 
 export default function PracticalInfoPage() {

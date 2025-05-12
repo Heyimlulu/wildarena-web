@@ -5,6 +5,12 @@ import ContactInfo from "@/components/features/contact/ContactInfo"
 import FAQ from "@/components/shared/ui/FAQ"
 import { MessageCircle } from "lucide-react"
 
+export const metadata = {
+  title: 'Wild Arena | Contact',
+  description: 'Prendre contact avec notre équipe - Nous sommes là pour vous aider !',
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+}
+
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-100">

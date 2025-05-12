@@ -4,7 +4,7 @@ import LegalNavigation from '@/components/legal/LegalNavigation';
 import { Clock } from 'lucide-react';
 
 export const metadata = {
-  title: 'Conditions d\'utilisation | Wild Arena',
+  title: 'Wild Arena | Conditions d\'utilisation',
   description: 'Les conditions d\'utilisation et modalités des services de Wild Arena.',
   keywords: 'conditions d\'utilisation, conditions générales, termes, wild arena, légal',
 }

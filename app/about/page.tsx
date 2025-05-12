@@ -8,6 +8,12 @@ import ArenaShowcase from "@/components/features/about/ArenaShowcase"
 import Careers from "@/components/features/about/Careers"
 import CTA from "@/components/features/about/CTA"
 
+export const metadata = {
+  title: "Wild Arena | A propos",
+  description: "Découvrez l'histoire et l'équipe derrière Wild Arena, le laser game en plein air.",
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+}
+
 export default function About() {
   return (
     <div className="min-h-screen bg-gray-100">

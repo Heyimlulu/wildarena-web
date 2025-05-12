@@ -62,6 +62,12 @@ const gameModes = [
   },
 ]
 
+export const metadata = {
+  title: 'Wild Arena | Modes de Jeu',
+  description: 'Découvrez nos différents modes de jeu, chacun offrant une expérience unique et des défis passionnants !',
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+}
+
 export default function GameModes() {
   return (
     <div className="min-h-screen bg-gray-50">

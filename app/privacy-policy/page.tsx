@@ -4,7 +4,7 @@ import LegalNavigation from '@/components/legal/LegalNavigation';
 import { Clock } from 'lucide-react';
 
 export const metadata = {
-  title: 'Politique de Confidentialité | Wild Arena',
+  title: 'Wild Arena | Politique de Confidentialité',
   description: 'Notre politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles.',
   keywords: 'politique de confidentialité, protection des données, informations personnelles, wild arena',
 }

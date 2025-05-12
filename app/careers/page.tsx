@@ -1,5 +1,3 @@
-'use client'
-
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { Offer } from '@/types/models/offers';
@@ -41,6 +39,12 @@ const internshipsOpportunities = [
 const offers: Offer[] = [
   // Available job offers can be added here
 ]
+
+export const metadata = {
+  title: 'Wild Arena | Emplois',
+  description: 'Découvrez les emplois disponibles chez Wild Arena',
+  keywords: "laser game, plein air, team building, activité groupe, laser game, Valais, Suisse",
+}
 
 export default function CareersPage() {
   return (

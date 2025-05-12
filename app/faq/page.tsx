@@ -3,8 +3,8 @@ import Header from '@/components/layout/Header'
 import FAQ from '@/components/shared/ui/FAQ'
 
 export const metadata = {
-  title: 'FAQ | Wild Arena',
-  description: 'Trouvez les réponses à vos questions sur Wild Arena, le laser game en plein air.',
+  title: 'Wild Arena | FAQ',
+  description: 'Trouvez les réponses à vos questions sur Wild Arena',
   keywords: 'faq, questions fréquentes, laser game, wild arena, aide',
 }
 
