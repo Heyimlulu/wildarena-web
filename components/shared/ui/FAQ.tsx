@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
-import { NavigationLink, NAVIGATION_LABELS, NAVIGATION_PATHS } from "@/enums/navigation";
+import { NavigationLink, NAVIGATION_LABEL_KEYS, NAVIGATION_PATHS } from "@/enums/navigation";
 
 const faqs = [
   {
@@ -23,12 +23,12 @@ const faqs = [
   {
     question: "Offrez-vous des remises pour les groupes?",
     answer:
-      `Oui, nous offrons des paquets spéciaux pour les groupes, les fêtes d'anniversaire et les événements d'entreprise. Consultez notre page ${NAVIGATION_LABELS[NavigationLink.PRICING]} pour plus de détails ou contactez-nous pour obtenir un devis personnalisé.`,
+      `Oui, nous offrons des paquets spéciaux pour les groupes, les fêtes d'anniversaire et les événements d'entreprise. Consultez notre page ${NAVIGATION_LABEL_KEYS[NavigationLink.PRICING]} pour plus de détails ou contactez-nous pour obtenir un devis personnalisé.`,
   },
   {
     question: "Combien dure une partie typique?",
     answer:
-      `Une partie standard dure environ 20 minutes, mais nous offrons divers paquets avec des durées différentes. Consultez notre page ${NAVIGATION_LABELS[NavigationLink.PRICING]} pour plus d'informations.`,
+      `Une partie standard dure environ 20 minutes, mais nous offrons divers paquets avec des durées différentes. Consultez notre page ${NAVIGATION_LABEL_KEYS[NavigationLink.PRICING]} pour plus d'informations.`,
   },
 ]
 

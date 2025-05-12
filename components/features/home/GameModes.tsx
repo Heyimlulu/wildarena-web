@@ -1,36 +1,40 @@
+'use client'
+
 import { Shield, Users, Target, Zap } from "lucide-react"
 import Link from "next/link"
-
-const gameModes = [
-  {
-    name: "Match en équipe",
-    description: "Chaque équipe affronte l'autre pour marquer le plus de points. L'équipe avec le plus de points remporte la partie.",
-    icon: Users,
-  },
-  {
-    name: "Capture du drapeau",
-    description: "Infiltrez la base ennemie, prenez leur drapeau et ramenez-le à votre base pour marquer.",
-    icon: Shield,
-  },
-  {
-    name: "Dernier Survivant",
-    description: "Chaque joueur pour lui-même. Soyez le dernier avec des vies restantes pour gagner.",
-    icon: Zap,
-  },
-  {
-    name: "Domination",
-    description: "Contrôlez les points stratégiques de la carte pour accumuler des points. La coordination d'équipe est la clé de la victoire.",
-    icon: Target,
-  },
-]
+import { useTranslation } from "react-i18next"
 
 export default function GameModes() {
+    const { t } = useTranslation();
+
+    const gameModes = [
+      {
+        name: t("home.game_modes.0.name"),
+        description: t("home.game_modes.0.description"),
+        icon: Users,
+      },
+      {
+        name: t("home.game_modes.1.name"),
+        description: t("home.game_modes.1.description"),
+        icon: Shield,
+      },
+      {
+        name: t("home.game_modes.2.name"),
+        description: t("home.game_modes.2.description"),
+        icon: Zap,
+      },
+      {
+        name: t("home.game_modes.3.name"),
+        description: t("home.game_modes.3.description"),
+        icon: Target,
+      },
+    ]
   return (
     <section id="game-modes" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-green-800">
-            Modes de jeu
+            {t("home.game_modes.title")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {gameModes.map((mode, index) => (
@@ -48,7 +52,7 @@ export default function GameModes() {
           </div>
           <div className="text-center mt-12 sm:mt-16">
             <Link className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 shadow-lg" href="/game-modes">
-              En savoir plus
+              {t("home.game_modes.cta")}
             </Link>
           </div>
         </div>

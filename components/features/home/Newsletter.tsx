@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { subscribeToNewsletter } from '@/services/newsletter';
+import { useTranslation } from 'react-i18next';
 
 export default function Newsletter() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
     type: null,
@@ -28,7 +30,7 @@ export default function Newsletter() {
     } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Une erreur est survenue. Veuillez réessayer.',
+        message: t('api.newsletter.error'),
       });
     } finally {
       setIsSubmitting(false);
@@ -40,14 +42,14 @@ export default function Newsletter() {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gradient-to-br from-green-700 to-green-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
           <h2 className="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Restez informé
+            {t("home.newsletter.title")}
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-white">
-            Inscrivez-vous à notre newsletter pour recevoir les dernières nouvelles, offres spéciales et invitations exclusives aux événements de Wild Arena.
+            {t("home.newsletter.description")}
           </p>
           <form onSubmit={handleSubmit} className="mx-auto mt-10 flex max-w-md gap-x-4">
             <label htmlFor="email-address" className="sr-only">
-              Adresse e-mail
+              {t("home.newsletter.email")}
             </label>
             <input
               id="email-address"
@@ -56,7 +58,7 @@ export default function Newsletter() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Entrez votre adresse e-mail"
+              placeholder={t("home.newsletter.placeholder")}
               autoComplete="email"
               className="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-green-500/10 placeholder:text-white focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-500 sm:text-sm/6"
             />
@@ -67,14 +69,14 @@ export default function Newsletter() {
                 isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
               }`}
             >
-              {isSubmitting ? 'Inscription...' : 'S\'inscrire'}
+              {isSubmitting ? t("home.newsletter.submitting") : t("home.newsletter.subscribe")}
             </button>
           </form>
           {status.message && (
             <div className={`mt-4 text-center ${
               status.type === 'success' ? 'text-green-200' : 'text-red-200'
             }`}>
-              {status.message}
+              {t(status.message)}
             </div>
           )}
         </div>

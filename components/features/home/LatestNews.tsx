@@ -1,14 +1,40 @@
+"use client";
 import Link from 'next/link';
-import { getSortedPostsData } from '@/services/blog/posts';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-export const LatestNews = async () => {
-  const posts = await getSortedPostsData();
+export const LatestNews = () => {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    fetch('/[locale]/api/posts')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch posts');
+        return res.json();
+      })
+      .then(data => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch(err => { 
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="py-12 text-center">{t("api.posts.loading")}</div>;
+  if (error) return <div className="py-12 text-center text-red-600">{error}</div>;
+  if (!posts.length) return <div className="py-12 text-center">{t("api.posts.no_posts_found")}</div>;
 
   return (
     <section className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl text-green-800 font-semibold mb-8">Blog</h2>
+        <h2 className="text-3xl text-green-800 font-semibold mb-8">{t("home.latest_news.title")}</h2>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {/* Card 1 */}
           <Link className="relative rounded-2xl overflow-hidden h-72 group" href={`/blog/${posts[0].slug}`}>
@@ -47,7 +73,7 @@ export const LatestNews = async () => {
           </Link>
         </div>
         {/* Recent Section */}
-        <h2 className="text-2xl text-green-800 font-semibold mb-6">Derniers articles</h2>
+        <h2 className="text-2xl text-green-800 font-semibold mb-6">{t("home.latest_news.recent_title")}</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {posts.slice(2, 5).map((post) => (
             <Link className="rounded-2xl overflow-hidden bg-white shadow-md group" key={post.slug} href={`/blog/${post.slug}`}>

@@ -1,0 +1,109 @@
+{
+  "switch_language": "Français",
+  "nav": {
+    "about": "About",
+    "practical_info": "Practical Info",
+    "game_modes": "Game Modes",
+    "events": "Events",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "locations": "Arenas",
+    "contact": "Contact Us",
+    "faq": "FAQ",
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Privacy Policy",
+    "careers": "Careers",
+    "socials": "Socials"
+  },
+  "footer": {
+    "title": "Wild Arena",
+    "description": "Free your savage side",
+    "quick_links": "Quick links",
+    "contact": "Contact",
+    "info": "Information"
+  },
+  "api": {
+    "posts": {
+      "loading": "Loading...",
+      "no_posts_found": "No posts found"
+    },
+    "newsletter": {
+      "subscribe_error": "An error occurred while subscribing to the newsletter.",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "home": {
+    "landing_page": {
+      "title": "Wild Arena",
+      "description": "Free your savage side"
+    },
+    "hero": {
+      "title": "The Re-invented Laser Game",
+      "subheading": "An immersive experience in the great outdoors",
+      "description": "Discover a new way to play laser tag in an exceptional natural setting. Ideal for corporate events, parties, and group outings.",
+      "cta": "Book now",
+      "cta2": "See prices",
+      "quick_stats": [
+        "Latest generation equipment",
+        "For all ages",
+        "4+ game modes"
+      ]
+    },
+    "features": {
+      "title": "Why choose Wild Arena?",
+      "0": {
+        "title": "Latest generation equipment",
+        "description": "Discover the laser tag like never before with our latest generation equipment and immersive arenas."
+      },
+      "1": {
+        "title": "Team Building",
+        "description": "Perfect for corporate events, birthdays, or a fun day out with friends and family."
+      },
+      "2": {
+        "title": "Multiple game modes",
+        "description": "Choose from a variety of exciting game modes to keep the adrenaline going all day long."
+      }
+    },
+    "game_modes": {
+      "title": "Game modes",
+      "cta": "Learn more",
+      "0": {
+        "name": "Team Match",
+        "description": "Each team faces the other to score the most points. The team with the most points wins the match."
+      },
+      "1": {
+        "name": "Capture the flag",
+        "description": "Infiltrate the enemy base, take their flag and bring it back to your base to score."
+      },
+      "2": {
+        "name": "Last survivor",
+        "description": "Each player for himself. Be the last with remaining lives to win."
+      },
+      "3": {
+        "name": "Domination",
+        "description": "Control strategic points on the map to accumulate points. Team coordination is the key to victory."
+      }
+    },
+    "corporate_events": {
+      "title": "Corporate Events",
+      "description": "Gather your team for an unforgettable corporate event at Wild Arena. Our laser tag arenas offer the perfect setting for team building, fostering communication, strategy, and camaraderie.",
+      "list_1": "Customizable team building packages",
+      "list_2": "Latest generation equipment and immersive arenas",
+      "list_3": "Professional event coordinators",
+      "list_4": "Restaurant options available",
+      "cta": "Book your corporate event"
+    },
+    "latest_news": {
+      "title": "Blog",
+      "recent_title": "Recent Posts"
+    },
+    "newsletter": {
+      "title": "Stay informed",
+      "description": "Subscribe to our newsletter to receive the latest news, special offers and exclusive invitations to Wild Arena events.",
+      "email": "Email",
+      "placeholder": "Enter your email address",
+      "subscribe": "Subscribe",
+      "submitting": "Subscribing..."
+    }
+  }
+}

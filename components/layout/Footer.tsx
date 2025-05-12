@@ -1,20 +1,26 @@
+'use client'
+
 import React from 'react';
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin, Music2 } from "lucide-react"
-import { NavigationLink, NAVIGATION_LABELS, NAVIGATION_PATHS } from "@/enums/navigation"
+import { NavigationLink, NAVIGATION_LABEL_KEYS, NAVIGATION_PATHS } from "@/enums/navigation"
+import LanguageSwitcher from "@/app/[locale]/language-switcher";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-green-800 text-white py-12 sm:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Wild Arena</h3>
-              <p className="text-sm text-gray-200">Libérez votre côté sauvage</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{t("footer.title")}</h3>
+              <p className="text-sm text-gray-200">{t("footer.description")}</p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-3 sm:mb-4">Liens rapides</h4>
+              <h4 className="text-lg font-semibold mb-3 sm:mb-4">{t("footer.quick_links")}</h4>
               <ul className="space-y-2.5">
                 {[ 
                   NavigationLink.ABOUT,
@@ -31,14 +37,14 @@ export default function Footer() {
                       href={NAVIGATION_PATHS[nav]} 
                       className="text-gray-200 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                     >
-                      {NAVIGATION_LABELS[nav]}
+                      <span className="truncate max-w-[140px] inline-block align-middle">{t(NAVIGATION_LABEL_KEYS[nav])}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-3 sm:mb-4">Contact</h4>
+              <h4 className="text-lg font-semibold mb-3 sm:mb-4">{t("footer.contact")}</h4>
               <div className="space-y-2.5 text-gray-200">
                 <p>3960 Sierre</p>
                 <p className="break-words">
@@ -52,7 +58,7 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-3 sm:mb-4">Informations</h4>
+              <h4 className="text-lg font-semibold mb-3 sm:mb-4">{t("footer.info")}</h4>
               <ul className="space-y-2.5">
                 {[ 
                   NavigationLink.FAQ,
@@ -62,13 +68,19 @@ export default function Footer() {
                   NavigationLink.SOCIALS,
                 ].map((nav) => (
                   <li key={NAVIGATION_PATHS[nav]}>
-                    <Link 
-                      href={NAVIGATION_PATHS[nav]} 
-                      className="text-gray-200 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
-                      {...(nav === NavigationLink.SOCIALS ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    >
-                      {NAVIGATION_LABELS[nav]}
-                    </Link>
+                    {(() => {
+                      const locale = (typeof window !== 'undefined' && window.location.pathname.split("/")[1]) || "en";
+                      const href = nav === NavigationLink.SOCIALS ? NAVIGATION_PATHS[nav] : `/${locale}${NAVIGATION_PATHS[nav]}`;
+                      return (
+                        <Link 
+                          href={href} 
+                          className="text-gray-200 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                          {...(nav === NavigationLink.SOCIALS ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        >
+                          <span className="truncate max-w-[140px] inline-block align-middle">{t(NAVIGATION_LABEL_KEYS[nav])}</span>
+                        </Link>
+                      );
+                    })()}
                   </li>
                 ))}
               </ul>
@@ -92,6 +104,9 @@ export default function Footer() {
             <p>&copy; {new Date().getFullYear()} Wild Arena. Tous droits réservés.</p>
           </div>
         </div>
+      </div>
+      <div className="mt-6 flex justify-center">
+        <LanguageSwitcher />
       </div>
     </footer>
   )

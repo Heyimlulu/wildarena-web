@@ -18,7 +18,7 @@ export async function subscribeToNewsletter(email: string): Promise<NewsletterSu
   } catch (error) {
     return {
       success: false,
-      message: 'Une erreur est survenue lors de l\'inscription à la newsletter.',
+      message: 'api.newsletter.subscribe_error',
     };
   }
 }

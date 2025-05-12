@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import CookieConsent from "@/components/CookieConsent";
 import { ABCGintoNord } from "@/utils/fonts";
+import I18nProvider from "./i18n-provider";
 
 export const metadata: Metadata = {
   title: "Wild Arena",
@@ -33,8 +34,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Detect locale from URL or default to 'en'
+  const locale = typeof window !== 'undefined' ? (window.location.pathname.split('/')[1] || 'en') : 'en';
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -48,7 +51,9 @@ export default function RootLayout({
       <body
         className={`${ABCGintoNord.variable} antialiased min-h-screen flex flex-col`}
       >
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
         <CookieConsent />
       </body>
     </html>

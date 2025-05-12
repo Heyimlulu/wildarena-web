@@ -1,29 +1,34 @@
-import { Target, Users, Zap } from "lucide-react"
+'use client'
 
-const features = [
-  {
-    icon: Target,
-    title: "Équipement de pointe",
-    description: "Découvrez le laser tag comme jamais auparavant avec notre équipement de pointe et nos arènes immersives.",
-  },
-  {
-    icon: Users,
-    title: "Team Building",
-    description: "Parfait pour les événements d'entreprise, les fêtes d'anniversaire ou une journée amusante entre amis et en famille.",
-  },
-  {
-    icon: Zap,
-    title: "Modes de jeu multiples",
-    description: "Choisissez parmi une variété de modes de jeu passionnants pour maintenir l'adrénaline toute la journée.",
-  },
-]
+import { Target, Users, Zap } from "lucide-react"
+import { useTranslation } from "react-i18next";
 
 export default function Features() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: Target,
+      title: t("home.features.0.title"),
+      description: t("home.features.0.description"),
+    },
+    {
+      icon: Users,
+      title: t("home.features.1.title"),
+      description: t("home.features.1.description"),
+    },
+    {
+      icon: Zap,
+      title: t("home.features.2.title"),
+      description: t("home.features.2.description"),
+    },
+  ]
+  
   return (
     <section id="features" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-green-800">
-          Pourquoi choisir Wild Arena?
+          {t("home.features.title")}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (

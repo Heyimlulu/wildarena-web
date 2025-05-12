@@ -15,21 +15,21 @@ export enum NavigationLink {
   SOCIALS = "socials"
 }
 
-export const NAVIGATION_LABELS: Record<NavigationLink, string> = {
-  [NavigationLink.ABOUT]: "A propos",
-  [NavigationLink.PRACTICAL_INFO]: "Infos pratiques",
-  [NavigationLink.GAME_MODES]: "Modes de jeu",
-  [NavigationLink.EVENTS]: "Événements",
-  [NavigationLink.BLOG]: "Blog",
-  [NavigationLink.PRICING]: "Tarifs",
-  [NavigationLink.LOCATIONS]: "Nos arènes",
-  [NavigationLink.CONTACT]: "Nous contacter",
-  [NavigationLink.FAQ]: "FAQ",
-  [NavigationLink.TERMS_OF_SERVICE]: "Conditions d'utilisation",
-  [NavigationLink.PRIVACY_POLICY]: "Politique de confidentialité",
-  [NavigationLink.CAREERS]: "Emplois",
-  [NavigationLink.SOCIALS]: "Réseaux sociaux"
-}
+export const NAVIGATION_LABEL_KEYS: Record<NavigationLink, string> = {
+  [NavigationLink.ABOUT]: "nav.about",
+  [NavigationLink.PRACTICAL_INFO]: "nav.practical_info",
+  [NavigationLink.GAME_MODES]: "nav.game_modes",
+  [NavigationLink.EVENTS]: "nav.events",
+  [NavigationLink.BLOG]: "nav.blog",
+  [NavigationLink.PRICING]: "nav.pricing",
+  [NavigationLink.LOCATIONS]: "nav.locations",
+  [NavigationLink.CONTACT]: "nav.contact",
+  [NavigationLink.FAQ]: "nav.faq",
+  [NavigationLink.TERMS_OF_SERVICE]: "nav.terms_of_service",
+  [NavigationLink.PRIVACY_POLICY]: "nav.privacy_policy",
+  [NavigationLink.CAREERS]: "nav.careers",
+  [NavigationLink.SOCIALS]: "nav.socials"
+};
 
 export const NAVIGATION_PATHS: Record<NavigationLink, string> = {
   [NavigationLink.ABOUT]: "/about",

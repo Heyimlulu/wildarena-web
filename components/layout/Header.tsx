@@ -7,11 +7,14 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import logo from "@/images/logo.png"
-import { NavigationLink, NAVIGATION_LABELS, NAVIGATION_PATHS } from "@/enums/navigation"
+import { NavigationLink, NAVIGATION_LABEL_KEYS, NAVIGATION_PATHS } from "@/enums/navigation"
+import { useTranslation } from "react-i18next"
+import LanguageSwitcher from "@/app/[locale]/language-switcher";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { t } = useTranslation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -46,21 +49,26 @@ export default function Header() {
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <nav className="hidden md:block">
-            <ul className="flex space-x-4 lg:space-x-6">
-              {navItems.map((nav) => (
-                <li key={NAVIGATION_PATHS[nav]}>
-                  <Link
-                    href={NAVIGATION_PATHS[nav]}
-                    className={`px-3 py-2 rounded-lg hover:bg-green-700 transition-colors ${
-                      pathname === NAVIGATION_PATHS[nav] ? "bg-green-700" : ""
-                    }`}
-                  >
-                    {NAVIGATION_LABELS[nav]}
-                  </Link>
-                </li>
-              ))}
+          <nav className="hidden md:flex items-center gap-4 min-w-0">
+            <ul className="flex flex-wrap space-x-4 lg:space-x-6 min-w-0">
+              {navItems.map((nav) => {
+                const locale = (pathname.split("/")[1] === "fr" || pathname.split("/")[1] === "en") ? pathname.split("/")[1] : "en";
+                const href = nav === NavigationLink.SOCIALS ? NAVIGATION_PATHS[nav] : `/${locale}${NAVIGATION_PATHS[nav]}`;
+                return (
+                  <li key={NAVIGATION_PATHS[nav]}>
+                    <Link
+                      href={href}
+                      className={`px-3 py-2 rounded-lg hover:bg-green-700 transition-colors ${
+                        pathname === NAVIGATION_PATHS[nav] ? "bg-green-700" : ""
+                      }`}
+                    >
+                      <span className="truncate max-w-[120px] inline-block align-middle">{t(NAVIGATION_LABEL_KEYS[nav])}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
+            <LanguageSwitcher className="ml-6" />
           </nav>
         </div>
         {isMenuOpen && (
@@ -75,11 +83,14 @@ export default function Header() {
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {NAVIGATION_LABELS[nav]}
+                    <span className="truncate max-w-[120px] inline-block align-middle">{t(NAVIGATION_LABEL_KEYS[nav])}</span>
                   </Link>
                 </li>
               ))}
             </ul>
+            <div className="flex justify-end mt-2 pr-2">
+              <LanguageSwitcher />
+            </div>
           </nav>
         )}
       </div>

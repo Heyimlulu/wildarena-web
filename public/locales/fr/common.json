@@ -1,0 +1,109 @@
+{
+  "switch_language": "English",
+  "nav": {
+    "about": "A propos",
+    "practical_info": "Infos pratiques",
+    "game_modes": "Modes de jeu",
+    "events": "Événements",
+    "blog": "Blog",
+    "pricing": "Tarifs",
+    "locations": "Nos arènes",
+    "contact": "Nous contacter",
+    "faq": "FAQ",
+    "terms_of_service": "Conditions d'utilisation",
+    "privacy_policy": "Politique de confidentialité",
+    "careers": "Emplois",
+    "socials": "Réseaux sociaux"
+  },
+  "footer": {
+    "title": "Wild Arena",
+    "description": "Libérez votre côté sauvage",
+    "quick_links": "Liens rapides",
+    "contact": "Contact",
+    "info": "Informations"
+  },
+  "api": {
+    "posts": {
+      "loading": "Chargement...",
+      "no_posts_found": "Aucun article trouvé"
+    },
+    "newsletter": {
+      "subscribe_error": "Une erreur est survenue lors de l'inscription à la newsletter.",
+      "error": "Une erreur est survenue. Veuillez réessayer."
+    }
+  },
+  "home": {
+    "landing_page": {
+      "title": "Wild Arena",
+      "description": "Libérez votre côté sauvage"
+    },
+    "hero": {
+      "title": "Le Laser Game Réinventé",
+      "subheading": "Une expérience immersive en pleine nature",
+      "description": "Découvrez une nouvelle façon de jouer au laser game dans un cadre naturel exceptionnel. Idéal pour les événements d'entreprise, les fêtes et les sorties entre amis.",
+      "cta": "Réserver maintenant",
+      "cta2": "Voir les tarifs",
+      "quick_stats": [
+        "Équipement de dernière génération",
+        "Pour tous les âges",
+        "4+ modes de jeu"
+      ]
+    },
+    "features": {
+      "title": "Pourquoi choisir Wild Arena?",
+      "0": {
+        "title": "Équipement de pointe",
+        "description": "Découvrez le laser tag comme jamais auparavant avec notre équipement de pointe et nos arènes immersives."
+      },
+      "1": {
+        "title": "Team Building",
+        "description": "Parfait pour les événements d'entreprise, les fêtes d'anniversaire ou une journée amusante entre amis et en famille."
+      },
+      "2": {
+        "title": "Modes de jeu multiples",
+        "description": "Choisissez parmi une variété de modes de jeu passionnants pour maintenir l'adrénaline toute la journée."
+      }
+    },
+    "game_modes": {
+      "title": "Modes de jeu",
+      "cta": "En savoir plus",
+      "0": {
+        "name": "Match en équipe",
+        "description": "Chaque équipe affronte l'autre pour marquer le plus de points. L'équipe avec le plus de points remporte la partie."
+      },
+      "1": {
+        "name": "Capture du drapeau",
+        "description": "Infiltrer la base ennemie, prenez leur drapeau et ramenez-le à votre base pour marquer."
+      },
+      "2": {
+        "name": "Dernier survivant",
+        "description": "Chaque joueur pour lui-même. Soyez le dernier avec des vies restantes pour gagner."
+      },
+      "3": {
+        "name": "Domination",
+        "description": "Contrôlez les points stratégiques de la carte pour accumuler des points. La coordination d'équipe est la clé de la victoire."
+      }
+    },
+    "corporate_events": {
+      "title": "Faites monter d'un cran votre équipe",
+      "description": "Rassemblez votre équipe pour un événement d'entreprise inoubliable au Wild Arena. Nos arènes de laser tag offrent le contexte idéal pour le team building, favorisant la communication, la stratégie et la camaraderie.",
+      "list_1": "Forfaits de team building personnalisables",
+      "list_2": "Équipements et arènes de pointe",
+      "list_3": "Coordinateurs d'événements professionnels",
+      "list_4": "Options de restauration disponibles",
+      "cta": "Réserver votre événement d'entreprise"
+    },
+    "latest_news": {
+      "title": "Blog",
+      "recent_title": "Derniers articles"
+    },
+    "newsletter": {
+      "title": "Restez informé",
+      "description": "Inscrivez-vous à notre newsletter pour recevoir les dernières nouvelles, offres spéciales et invitations exclusives aux événements de Wild Arena.",
+      "email": "Adresse e-mail",
+      "placeholder": "Entrez votre adresse e-mail",
+      "subscribe": "S'inscrire",
+      "submitting": "Inscription..."
+    }
+  }
+}
