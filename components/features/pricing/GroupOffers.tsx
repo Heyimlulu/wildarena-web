@@ -13,8 +13,6 @@ const groupOptions = [
       icon: Cake,
       features: [
         "2 heures de jeu",
-        "Salle privée pendant 1 heure",
-        "Pizza et boissons incluses",
         "Cadeau spécial pour la personne fêtée",
       ],
     },
@@ -27,9 +25,7 @@ const groupOptions = [
       icon: Briefcase,
       features: [
         "3 heures de jeu",
-        "Salle de conférence privée pendant 1 heure",
         "Exercices de team-building personnalisés",
-        "Options de restauration disponibles",
         "Photo de groupe et certificat",
       ],
     },
@@ -42,8 +38,6 @@ const groupOptions = [
       icon: Users,
       features: [
         "90 minutes de jeu", 
-        "Espace casier partagé", 
-        "15% de réduction sur nourriture et boissons", 
         "Photo de groupe"
       ],
     },

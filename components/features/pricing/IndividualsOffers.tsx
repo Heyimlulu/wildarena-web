@@ -10,7 +10,7 @@ const individualOptions = [
       duration: "20 minutes",
       icon: Clock,
       maxPlayers: 1,
-      features: ["Une session de jeu de 20 minutes", "Location d'équipement standard", "Formation de base incluse"],
+      features: ["Une session de jeu de 20 minutes", "Formation de base incluse"],
     },
     {
       name: IndividualPricingOption.HOUR_GAME,
@@ -18,7 +18,7 @@ const individualOptions = [
       duration: "60 minutes",
       icon: Zap,
       maxPlayers: 1,
-      features: ["Trois sessions de jeu de 20 minutes", "Location d'équipement premium", "Session de formation prolongée"],
+      features: ["Trois sessions de jeu de 20 minutes", "Session de formation prolongée"],
     },
     {
       name: IndividualPricingOption.HALF_DAY_PASS,
@@ -26,7 +26,7 @@ const individualOptions = [
       duration: "1/2 Journée",
       icon: Users,
       maxPlayers: 1,
-      features: ["Jeux illimités pour 1/2 journée", "Location d'équipement VIP", "Accès prioritaire à la file d'attente", "10% de réduction sur les produits dérivés"],
+      features: ["Jeux illimités pour 1/2 journée", "Accès prioritaire à la file d'attente"],
     },
     {
       name: IndividualPricingOption.FULL_DAY_PASS,
@@ -34,7 +34,7 @@ const individualOptions = [
       duration: "Journée complète",
       icon: Users,
       maxPlayers: 1,
-      features: ["Jeux illimités pour la journée", "Location d'équipement VIP", "Accès prioritaire à la file d'attente", "10% de réduction sur les produits dérivés"],
+      features: ["Jeux illimités pour la journée", "Accès prioritaire à la file d'attente"],
     },
   ]
 
