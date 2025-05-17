@@ -3,7 +3,7 @@ title: 'Une activité originale entre amis'
 date: '2025-05-09'
 description: 'Envie de bouger, de rire et de vivre un moment fun ? Wild Arena est fait pour vous.'
 image:
-  url: '/blog/activite-entre-amis.jpg'
+  url: '/images/blog/activite-entre-amis.jpg'
   alt: 'Affiche Wild Arena activité entre amis'
 ---
 

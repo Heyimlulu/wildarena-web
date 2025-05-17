@@ -2,13 +2,9 @@ import Image, { StaticImageData } from "next/image"
 import { Play } from "lucide-react"
 import React from "react"
 import Link from "next/link"
-import arena1 from "@/images/arenas/finges-1.gif"
-import arena2 from "@/images/arenas/office-corporate.gif"
-import event1 from "@/images/arenas/event1.jpg"
-import equipment from "@/images/arenas/equipment.jpg"
 
 interface ArenaImage {
-  src: StaticImageData
+  src: string
   alt: string
   title: string
   slug: string
@@ -17,28 +13,28 @@ interface ArenaImage {
 
 const arenaImages: ArenaImage[] = [
   {
-    src: arena1,
+    src: "/images/arenas/finges-1.gif",
     alt: "Arènes en plein air",
     title: "Arènes en plein air",
     slug: "outdoor-arena",
     description: "Une expérience immersive dans un cadre naturel exceptionnel"
   },
   {
-    src: arena2,
+    src: "/images/arenas/office-corporate.gif",
     alt: "Arène intérieure",
     title: "Votre propre expérience de jeu laser",
     slug: "indoor-arena",
     description: "Transformez votre bâtiment en une arène de jeu laser immersive"
   },
   {
-    src: event1,
+    src: "/images/arenas/event1.jpg",
     alt: "Événement Wild Arena",
     title: "Événements Spéciaux",
     slug: "special-event",
     description: "Des tournois et événements exclusifs"
   },
   {
-    src: equipment,
+    src: "/images/arenas/equipment.jpg",
     alt: "Équipement Wild Arena",
     title: "Équipement de Pointe",
     slug: "equipment",

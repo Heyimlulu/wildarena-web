@@ -4,30 +4,30 @@ import Image from "next/image";
 import { X } from "lucide-react";
 
 const featuredVideo = {
-  desktop: "/gallery/videos/featured-video-desktop.mp4",
-  mobile: "/gallery/videos/featured-video-mobile.mp4", 
+  desktop: "/images/gallery/videos/featured-video-desktop.mp4",
+  mobile: "/images/gallery/videos/featured-video-mobile.mp4", 
   alt: "Featured Wild Arena video"
 };
 
 const galleryImages = [
   {
-    src: "/gallery/images/featured-image-1.png",
+    src: "/images/gallery/images/featured-image-1.png",
     alt: "Wild Arena gallery 1"
   },
   {
-    src: "/gallery/images/featured-image-2.png",
+    src: "/images/gallery/images/featured-image-2.png",
     alt: "Wild Arena gallery 2"
   },
   {
-    src: "/gallery/images/featured-image-3.png",
+    src: "/images/gallery/images/featured-image-3.png",
     alt: "Wild Arena gallery 3"
   },
   {
-    src: "/gallery/images/featured-image-4.png",
+    src: "/images/gallery/images/featured-image-4.png",
     alt: "Wild Arena gallery 4"
   },
   {
-    src: "/gallery/images/featured-image-5.png",
+    src: "/images/gallery/images/featured-image-5.png",
     alt: "Wild Arena gallery 5"
   },
 ];

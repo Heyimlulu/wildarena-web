@@ -3,7 +3,7 @@ title: 'Equipements de pointe'
 date: '2025-03-31'
 description: 'Découvrez nos équipements de pointe'
 image:
-  url: '/blog/Toy Pistol on Ground.jpg'
+  url: '/images/blog/Toy Pistol on Ground.jpg'
   alt: 'Toy Pistol on Ground by Erik Mclean (Unsplash)'
 ---
 

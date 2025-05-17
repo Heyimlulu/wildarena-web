@@ -3,7 +3,7 @@ title: 'Notre arène en pleine nature : Pfyn-Finges'
 date: '2025-05-09'
 description: 'Un terrain de jeu au cœur des Alpes valaisannes'
 image:
-  url: '/blog/pfyn-finges.jpg'
+  url: '/images/blog/pfyn-finges.jpg'
   alt: 'Arène de jeu dans la nature de Pfyn-Finges'
 ---
 

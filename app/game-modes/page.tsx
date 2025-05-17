@@ -2,16 +2,12 @@ import Link from "next/link"
 import { Users, Clock, Target, Shield } from "lucide-react"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
-import captureFlag from "@/images/game-modes/capture-flag.jpg"
-import teamMatching from "@/images/game-modes/team-matching.jpg"
-import lastSurvivor from "@/images/game-modes/last-survivor.jpg"
-import domination from "@/images/game-modes/domination.jpg"
 
 const gameModes = [
   {
     title: "Match en équipe",
     icon: Users,
-    image: teamMatching,
+    image: "/images/game-modes/team-matching.jpg",
     players: "8-12 joueurs",
     duration: "30 minutes",
     description: "Chaque équipe affronte l'autre pour marquer le plus de points. L'équipe avec le plus de points remporte la partie.",
@@ -24,7 +20,7 @@ const gameModes = [
   {
     title: "Capture de Drapeau",
     icon: Target,
-    image: captureFlag,
+    image: "/images/game-modes/capture-flag.jpg",
     players: "8-12 joueurs",
     duration: "20 minutes",
     description: "Deux équipes s'affrontent pour capturer le drapeau adverse tout en défendant le leur. Stratégie et travail d'équipe sont essentiels.",
@@ -37,7 +33,7 @@ const gameModes = [
   {
     title: "Dernier Survivant",
     icon: Shield,
-    image: lastSurvivor,
+    image: "/images/game-modes/last-survivor.jpg",
     players: "6-10 joueurs",
     duration: "15 minutes",
     description: "Chacun pour soi ! Le dernier joueur en vie remporte la partie. Restez vigilant et utilisez le terrain à votre avantage.",
@@ -50,7 +46,7 @@ const gameModes = [
   {
     title: "Domination",
     icon: Target,
-    image: domination,
+    image: "/images/game-modes/domination.jpg",
     players: "10-16 joueurs",
     duration: "25 minutes",
     description: "Contrôlez les points stratégiques de la carte pour accumuler des points. La coordination d'équipe est la clé de la victoire.",

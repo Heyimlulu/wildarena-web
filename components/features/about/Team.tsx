@@ -1,32 +1,28 @@
 import Image from "next/image"
-import lion from "@/images/avatars/lion.png"
-import fox from "@/images/avatars/fox.png"
-import wolf from "@/images/avatars/wolf.png"
-import owl from "@/images/avatars/owl.png"
 
 const teamMembers = [
   {
     name: "Benoît Barras",
     role: "CEO & Co-fondateur",
-    image: lion,
+    image: "/images/avatars/lion.png",
     bio: "Passionné par l'innovation et le développement d'expériences uniques.",
   },
   {
     name: "Lucas Rouiller-Monay",
     role: "CTO & Co-fondateur",
-    image: fox,
+    image: "/images/avatars/fox.png",
     bio: "Expert en technologie et développement de solutions innovantes.",
   },
   {
     name: "David Passera",
     role: "COO & Co-fondateur",
-    image: wolf,
+    image: "/images/avatars/wolf.png",
     bio: "Spécialiste des opérations et de l'expérience client.",
   },
   {
     name: "Vincent Brassard",
     role: "CIO & Co-fondateur",
-    image: owl,
+    image: "/images/avatars/owl.png",
     bio: "Expert en stratégie d'information et innovation technologique.",
   },
 ]

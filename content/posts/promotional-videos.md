@@ -3,7 +3,7 @@ title: 'Début du tournage de nos vidéos promotionnelles'
 date: '2025-04-23'
 description: 'Premiers jours de tournage pour capturer l’essence de Wild Arena en pleine nature.'
 image:
-  url: '/blog/tournage-wildarena.jpg'
+  url: '/images/blog/tournage-wildarena.jpg'
   alt: 'Tournage vidéo Wild Arena en forêt'
 ---
 

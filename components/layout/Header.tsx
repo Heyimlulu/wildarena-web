@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
-import logo from "@/images/logo.png"
 import { NavigationLink, NAVIGATION_LABELS, NAVIGATION_PATHS } from "@/enums/navigation"
 
 export default function Header() {
@@ -38,7 +37,7 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-[128px] h-[128px] sm:w-[96px] sm:h-[96px] sm:mr-2 relative">
-              <Image src={logo} alt="Wild Arena logo" fill className="object-cover" priority />
+              <Image src="/images/logo.png" alt="Wild Arena logo" fill className="object-cover" priority />
             </div>
             <span className="text-xl sm:text-2xl font-bold">Wild Arena</span>
           </Link>

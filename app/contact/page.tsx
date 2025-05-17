@@ -17,7 +17,6 @@ export default function Contact() {
       <Header />
       <main>
         <div className="relative bg-gradient-to-br from-green-700 to-green-900 text-white py-16 sm:py-20 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
         <div className="container mx-auto px-4 text-center relative">
           <div className="flex justify-center mb-6">
             <MessageCircle className="w-16 h-16 text-green-300" />

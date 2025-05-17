@@ -3,7 +3,7 @@ title: 'Arènes intérieures'
 date: '2025-03-31'
 description: 'Découvrez nos arènes intérieures'
 image:
-  url: '/blog/Empty Black Chairs Photo.jpg'
+  url: '/images/blog/Empty Black Chairs Photo.jpg'
   alt: 'Empty Black Chairs Photo by kate.sade (Unsplash)'
 ---
 

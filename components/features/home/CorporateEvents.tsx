@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import indoorArchitecture from "@/images/home/Salon with Ladder and Couch.jpg"
 
 export default function CorporateEvents() {
   return (
@@ -11,7 +10,7 @@ export default function CorporateEvents() {
           <div className="lg:w-1/2 w-full">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src={indoorArchitecture}
+                src="/images/home/Salon with Ladder and Couch.jpg"
                 alt="Indoor Architecture by Yevhenii Deshko (Unsplash)"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

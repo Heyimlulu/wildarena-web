@@ -1,12 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import mountain from '@/images/home/Mountain Range View.jpg';
 
 const Banner = () => {
   return (
     <div className="relative w-full h-[100svh] bg-black overflow-hidden">
       <Image 
-        src={mountain} 
+        src="/images/home/Mountain Range View.jpg" 
         alt="Mountain Range View by Martin Adams (Unsplash)" 
         priority
         fill

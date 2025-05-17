@@ -3,7 +3,7 @@ title: 'Une rencontre inspirante avec le VR Center'
 date: '2025-04-25'
 description: 'Échange passionnant entre Wild Arena et le n°1 de la réalité virtuelle en Valais.'
 image:
-  url: '/blog/Mountain Castle Photo.jpg'
+  url: '/images/blog/Mountain Castle Photo.jpg'
   alt: 'Rencontre Wild Arena et VR Center'
 ---
 

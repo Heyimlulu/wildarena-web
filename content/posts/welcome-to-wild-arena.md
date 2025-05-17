@@ -3,7 +3,7 @@ title: 'Bienvenue à Wild Arena'
 date: '2025-03-03'
 description: 'Une introduction à Wild Arena et ce qui la rend unique'
 image:
-  url: '/blog/Hello.jpg'
+  url: '/images/blog/Hello.jpg'
   alt: 'Hello by Allison Saeng (Unsplash)'
 ---
 

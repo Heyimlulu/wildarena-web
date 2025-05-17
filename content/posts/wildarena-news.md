@@ -3,7 +3,7 @@ title: 'Laser game en forêt : précisions suite à l’article du Nouvelliste'
 date: '2025-04-23'
 description: 'Wild Arena souhaite clarifier sa position suite aux débats publics autour d’une autorisation accordée à une autre société.'
 image:
-  url: '/blog/breaking-news.jpg'
+  url: '/images/blog/breaking-news.jpg'
   alt: 'Discussion autour du laser game en nature'
 ---
 

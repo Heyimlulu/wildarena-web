@@ -1,11 +1,10 @@
 import Image from "next/image"
-import mountain from "@/images/home/Mountain Range View.jpg"
 
 export default function AboutHero() {
   return (
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
       <Image
-        src={mountain}
+        src="/images/home/Mountain Range View.jpg"
         alt="Mountain background"
         fill
         priority

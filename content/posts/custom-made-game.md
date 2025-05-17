@@ -1,10 +1,10 @@
 ---
-title: 'Organisez votre partie sur mesure'
-date: '2025-05-09'
-description: 'Choisissez le lieu, la date, et les participants pour une expérience 100% personnalisée.'
+title: "Organisez votre partie sur mesure"
+date: "2025-05-09"
+description: "Choisissez le lieu, la date, et les participants pour une expérience 100% personnalisée."
 image:
-  url: '/blog/laser-game-questions.jpg'
-  alt: 'Joueur Wild Arena avec informations pratiques'
+  url: "/images/blog/laser-game-questions.jpg"
+  alt: "Joueur Wild Arena avec informations pratiques"
 ---
 
 Vous êtes libre de choisir **où**, **quand** et **avec qui** vous souhaitez jouer. Chez **Wild Arena**, tout est pensé pour que votre session de laser game en nature soit **100 % personnalisée**.

@@ -7,7 +7,7 @@ import { ABCGintoNord } from "@/utils/fonts";
 export const metadata: Metadata = {
   title: "Wild Arena",
   description: "Expérience de laser game en pleine nature, destiné à un public très large : familles, entreprises pour des événements de Team Building, groupe scolaire ou particuliers.",
-  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse",
+  keywords: "laser game, plein air, team building, activité groupe, laser tag, Valais, Suisse, outdoor",
   alternates: {
     canonical: "https://wildarena.ch/",
   },

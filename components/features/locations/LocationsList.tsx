@@ -1,14 +1,12 @@
 import React from 'react';
 import Image from "next/image"
 import { MapPin, Car, Clock, Calendar, Users } from "lucide-react"
-import pfynFinges from "@/images/locations/pfyn-finges.jpg"
-import logo from "@/images/logo.png"
 
 const locations = [
   {
     name: "Parc naturel régional Pfyn-Finges",
     address: "3970 Salquenen",
-    image: pfynFinges,
+    image: "/images/locations/pfyn-finges.jpg",
     parking: "Parking payant disponible",
     openingHours: "24 heures sur 24",
     availability: "Lundi - Dimanche",
@@ -91,7 +89,7 @@ export default function LocationsList() {
             <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
               <div className="relative h-64">
                 <Image
-                  src={logo}
+                  src="/images/logo.png"
                   alt="Arena Coming Soon"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
