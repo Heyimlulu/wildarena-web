@@ -37,7 +37,9 @@ export default function Header() {
       <div className="container mx-auto px-4 py-2 sm:py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src={logo} alt="Wild Arena logo" width={128} height={128} className="sm:w-[72px] sm:h-[72px]" priority />
+            <div className="w-[128px] h-[128px] sm:w-[96px] sm:h-[96px] sm:mr-2 relative">
+              <Image src={logo} alt="Wild Arena logo" fill className="object-cover" priority />
+            </div>
             <span className="text-xl sm:text-2xl font-bold">Wild Arena</span>
           </Link>
           <button 
