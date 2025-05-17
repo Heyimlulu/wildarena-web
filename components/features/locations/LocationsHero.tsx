@@ -18,14 +18,6 @@ export default function LocationsHero() {
         </div>
       </div>
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/Forest.jpg"
-          alt="Forest background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-30"
-        />
         <div className="absolute inset-0 bg-gradient-to-b from-green-900/80 to-green-800/90" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

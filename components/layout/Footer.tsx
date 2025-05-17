@@ -21,9 +21,9 @@ export default function Footer() {
                   NavigationLink.PRACTICAL_INFO,
                   NavigationLink.GAME_MODES,
                   NavigationLink.EVENTS,
-                  NavigationLink.BLOG,
                   NavigationLink.PRICING,
                   NavigationLink.LOCATIONS,
+                  NavigationLink.BLOG,
                   NavigationLink.CONTACT,
                 ].map((nav) => (
                   <li key={NAVIGATION_PATHS[nav]}>

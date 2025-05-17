@@ -2,14 +2,15 @@ import React from 'react';
 import Image from "next/image"
 import { MapPin, Car, Clock, Calendar, Users } from "lucide-react"
 import pfynFinges from "@/images/locations/pfyn-finges.jpg"
+import logo from "@/images/logo.png"
 
 const locations = [
   {
     name: "Parc naturel régional Pfyn-Finges",
     address: "3970 Salquenen",
     image: pfynFinges,
-    parking: "Parking gratuit disponible",
-    openingHours: "9h00 - 18h00",
+    parking: "Parking payant disponible",
+    openingHours: "24 heures sur 24",
     availability: "Lundi - Dimanche",
     capacity: "Jusqu'à 30 joueurs",
     description: "Une arène naturelle exceptionnelle au cœur du plus grand site naturel du Valais. Terrain varié avec forêts denses et clairières.",
@@ -87,6 +88,60 @@ export default function LocationsList() {
                 </div>
               </div>
             ))}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+              <div className="relative h-64">
+                <Image
+                  src={logo}
+                  alt="Arena Coming Soon"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover grayscale"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-400">Bientôt disponible</h3>
+                </div>
+                <p className="text-gray-500 mb-6">De nouvelles arènes arrivent bientôt pour enrichir votre expérience de jeu. Restez informé !</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 opacity-60">
+                  <div className="flex items-start">
+                    <MapPin className="w-5 h-5 text-red-300 mt-1 mr-3 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-400">Adresse</p>
+                      <p className="text-sm text-gray-300">À venir</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <Car className="w-5 h-5 text-blue-300 mt-1 mr-3 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-400">Parking</p>
+                      <p className="text-sm text-gray-300">À venir</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <Clock className="w-5 h-5 text-green-300 mt-1 mr-3 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-400">Horaires</p>
+                      <p className="text-sm text-gray-300">À venir</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <Calendar className="w-5 h-5 text-purple-300 mt-1 mr-3 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-400">Disponibilité</p>
+                      <p className="text-sm text-gray-300">À venir</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <Users className="w-5 h-5 text-orange-300 mt-1 mr-3 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-400">Capacité</p>
+                      <p className="text-sm text-gray-300">À venir</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

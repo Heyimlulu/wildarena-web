@@ -34,7 +34,7 @@ const individualOptions = [
       duration: "Journée complète",
       icon: Users,
       maxPlayers: 1,
-      features: ["Jeux illimités pour la journée", "Accès prioritaire à la file d'attente"],
+      features: ["Jeux illimités pour la journée", "Avantages Premium inclus"],
     },
   ]
 
