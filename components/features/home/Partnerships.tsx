@@ -45,7 +45,7 @@ export default function Partnerships() {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-green-800">
           Nos partenaires
         </h2>
         <div className="-mx-6 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3 items-center justify-center">

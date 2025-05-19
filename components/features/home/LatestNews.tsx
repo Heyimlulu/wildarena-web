@@ -8,7 +8,7 @@ export const LatestNews = async () => {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl text-green-800 font-semibold mb-8">Blog</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-800 mb-8">Blog</h2>
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {/* Card 1 */}
           <Link className="relative rounded-2xl overflow-hidden h-72 group" href={`/blog/${posts[0].slug}`}>
@@ -47,7 +47,7 @@ export const LatestNews = async () => {
           </Link>
         </div>
         {/* Recent Section */}
-        <h2 className="text-2xl text-green-800 font-semibold mb-6">Derniers articles</h2>
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-green-800 mb-6">Derniers articles</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {posts.slice(2, 5).map((post) => (
             <Link className="rounded-2xl overflow-hidden bg-white shadow-md group" key={post.slug} href={`/blog/${post.slug}`}>
