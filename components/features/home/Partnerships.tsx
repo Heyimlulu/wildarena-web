@@ -70,7 +70,7 @@ export default function Partnerships() {
                 </div>
               </a>
             ) : (
-              <div className="bg-gray-400/5 p-6 sm:p-10" aria-label={partner.name}>
+              <div key={partner.name} className="bg-gray-400/5 p-6 sm:p-10" aria-label={partner.name}>
                 <Image
                   src={partner.logo}
                   alt={partner.name}
