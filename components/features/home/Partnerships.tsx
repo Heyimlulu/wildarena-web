@@ -1,4 +1,6 @@
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Partner {
   name: string;
@@ -41,8 +43,8 @@ const partners: Partner[] = [
 
 export default function Partnerships() {
   return (
-    <section className="bg-white py-12 px-4 lg:px-8">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800 tracking-tight">
           Nos partenaires
         </h2>
@@ -81,12 +83,10 @@ export default function Partnerships() {
           ))}
         </div>
         <div className="mt-10 flex justify-center">
-          <a
-            href="/contact"
-            className="inline-block text-gray-600 hover:text-gray-700 font-semibold py-2 px-4 rounded-full border border-gray-300 transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2"
-          >
-            Vous voulez être un partenaire ? 
-          </a>
+          <Link className="inline-flex items-center text-gray-600 hover:text-gray-700 font-semibold py-2 px-4 rounded-full border border-gray-300 transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2" href="/contact">
+            Vous voulez &ecirc;tre un partenaire ? 
+            <ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

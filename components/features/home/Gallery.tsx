@@ -36,7 +36,7 @@ export default function Gallery() {
   const [modalImg, setModalImg] = useState<null | { src: string; alt: string }>(null);
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-4">
         <h2 className="sr-only">
             Galerie
