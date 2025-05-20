@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
-      <main>
+      <main className="overflow-x-hidden">
         <div className="relative">
           <Banner />
           <div className="absolute inset-0 h-full flex flex-col items-center justify-center text-center z-10 px-4">
